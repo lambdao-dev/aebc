@@ -1,0 +1,42 @@
+<.header>
+  Listing Teachers
+  <:actions>
+    <.link patch={~p"/teachers/new"}>
+      <.button>New Teacher</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="teachers"
+  rows={@streams.teachers}
+  row_click={fn {_id, teacher} -> JS.navigate(~p"/teachers/#{teacher}") end}
+>
+  <:col :let={{_id, teacher}} label="Description">{teacher.description}</:col>
+  <:col :let={{_id, teacher}} label="Name">{teacher.name}</:col>
+  <:action :let={{_id, teacher}}>
+    <div class="sr-only">
+      <.link navigate={~p"/teachers/#{teacher}"}>Show</.link>
+    </div>
+    <.link patch={~p"/teachers/#{teacher}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, teacher}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: teacher.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="teacher-modal" show on_cancel={JS.patch(~p"/teachers")}>
+  <.live_component
+    module={AebcWeb.TeacherLive.FormComponent}
+    id={@teacher.id || :new}
+    title={@page_title}
+    action={@live_action}
+    teacher={@teacher}
+    patch={~p"/teachers"}
+  />
+</.modal>
