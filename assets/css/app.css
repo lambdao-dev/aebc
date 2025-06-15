@@ -3,3 +3,93 @@
 @import "tailwindcss/utilities";
 
 /* This file is for your main application CSS */
+
+.testlayout {
+  font-family: 'Roboto';
+  color: #FF2499;
+}
+
+.fafa {
+  color: #FF2499;
+}
+
+.spacer {
+    height: 200px; /* or any desired height */
+}
+
+/* latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/nunito/v26/XRXV3I6Li01BKofINeaB.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+.white_bg
+{
+    background-color:rgba(255,255,255,0.5);
+    border-radius: 25px;
+    padding: 16px; /*add this if you want a bit of space around the text*/
+    box-decoration-break: clone;
+    display: inline-block;
+}
+.navelem
+{
+    background-color:rgba(255,255,255,1);
+    border-radius: 25px;
+    padding: 16px; /*add this if you want a bit of space around the text*/
+    box-decoration-break: clone;
+    display: block;
+}
+
+body {
+  font-family: 'Nunito';
+  font-size: 100%;
+ }
+
+.flexbox-h-container {
+    padding: 0em;
+	display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.flexbox-v-container {
+	padding: 1%;
+    max-width: 50%
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desc {
+    min-width: 350px;
+}
+
+a {
+  color: #3d6dbe;
+  background-color:rgba(255,255,255,0.5);
+  border-radius: 25px;
+  padding: 12px;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: circle;
+  list-style-position: inside;
+}
+
+p {
+    padding-bottom: 1em;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+

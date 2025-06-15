@@ -8,6 +8,7 @@ defmodule AebcWeb.Router do
     plug :put_root_layout, html: {AebcWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug AebcWeb.Plugs.Locale, "fr"
   end
 
   pipeline :api do
@@ -18,6 +19,20 @@ defmodule AebcWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/about", PageController, :about
+    get "/institute", PageController, :institute
+    get "/download", PageController, :download
+    live "/courses", CourseLive.Index, :index
+    live "/courses/:id", CourseLive.Show, :show
+    live "/teachers", TeacherLive.Index, :index
+    live "/teachers/:id", TeacherLive.Show, :show
+    live "/posts", PostLive.Index, :index
+    live "/posts/:id", PostLive.Show, :show
+    live "/events", EventLive.Index, :index
+    live "/events/:id", EventLive.Show, :show
+    live "/directors", DirectorLive.Index, :index
+    live "/directors/:id", DirectorLive.Show, :show
+    match :*, "/*path", PageController, :not_found
   end
 
   # Other scopes may use custom stacks.

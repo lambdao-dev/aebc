@@ -10,5 +10,7 @@ defmodule AebcWeb.Layouts do
   """
   use AebcWeb, :html
 
+  import AebcWeb.LocaleSelector
+
   embed_templates "layouts/*"
 end

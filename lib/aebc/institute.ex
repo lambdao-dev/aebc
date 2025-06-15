@@ -3,102 +3,58 @@ defmodule Aebc.Institute do
   The Institute context.
   """
 
-  import Ecto.Query, warn: false
-  alias Aebc.Repo
+  use Tesla
 
-  alias Aebc.Institute.Teacher
+  # Plug in middleware for JSON and setting the base URL
+  plug Tesla.Middleware.BaseUrl, "http://localhost:1337/api"
+  plug Tesla.Middleware.JSON
 
-  @doc """
-  Returns the list of teachers.
+  # defp base_url do
+  #   Application.fetch_env!(:institute, :strapi)[:base_url]
+  # end
 
-  ## Examples
-
-      iex> list_teachers()
-      [%Teacher{}, ...]
-
-  """
-  def list_teachers do
-    Repo.all(Teacher)
+  # Helper to parse the common Strapi response structure
+  defp parse_response({:ok, %Tesla.Env{status: 200, body: %{"data" => data}}}) do
+    {:ok, data}
   end
 
-  @doc """
-  Gets a single teacher.
-
-  Raises `Ecto.NoResultsError` if the Teacher does not exist.
-
-  ## Examples
-
-      iex> get_teacher!(123)
-      %Teacher{}
-
-      iex> get_teacher!(456)
-      ** (Ecto.NoResultsError)
-
-  """
-  def get_teacher!(id), do: Repo.get!(Teacher, id)
-
-  @doc """
-  Creates a teacher.
-
-  ## Examples
-
-      iex> create_teacher(%{field: value})
-      {:ok, %Teacher{}}
-
-      iex> create_teacher(%{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def create_teacher(attrs \\ %{}) do
-    %Teacher{}
-    |> Teacher.changeset(attrs)
-    |> Repo.insert()
+  defp parse_response({:ok, %Tesla.Env{status: 404, body: %{"error" => data}}}) do
+    {:error, data}
   end
 
-  @doc """
-  Updates a teacher.
-
-  ## Examples
-
-      iex> update_teacher(teacher, %{field: new_value})
-      {:ok, %Teacher{}}
-
-      iex> update_teacher(teacher, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def update_teacher(%Teacher{} = teacher, attrs) do
-    teacher
-    |> Teacher.changeset(attrs)
-    |> Repo.update()
+  defp parse_response(response) do
+    response
   end
 
-  @doc """
-  Deletes a teacher.
+  # Optional: For authenticated requests later, you can add a header
+  # plug Tesla.Middleware.Headers, [{"Authorization", "Bearer #{System.get_env("STRAPI_API_TOKEN")}"}]
 
-  ## Examples
-
-      iex> delete_teacher(teacher)
-      {:ok, %Teacher{}}
-
-      iex> delete_teacher(teacher)
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def delete_teacher(%Teacher{} = teacher) do
-    Repo.delete(teacher)
+  def fetch_single_page(slug, locale \\ "fr") do
+    get("/#{slug}?locale=#{locale}") |> parse_response()
   end
 
-  @doc """
-  Returns an `%Ecto.Changeset{}` for tracking teacher changes.
+  def get(model, id, locale \\ "fr", populate \\ nil) do
+    url = "/#{model}/#{id}?locale=#{locale}"
+    url = if populate, do: "#{url}&#{build_populate_query(populate)}", else: url
+    url |> get |> parse_response()
+  end
 
-  ## Examples
+  def get_all(model, locale \\ "fr", populate \\ nil) do
+    url = "/#{model}?locale=#{locale}"
+    url = if populate, do: "#{url}&#{build_populate_query(populate)}", else: url
+    url |> get |> parse_response()
+  end
 
-      iex> change_teacher(teacher)
-      %Ecto.Changeset{data: %Teacher{}}
+  defp build_populate_query(populate) when is_list(populate) do
+    populate
+    |> Enum.map(&"populate=#{&1}")
+    |> Enum.join("&")
+  end
+  defp build_populate_query(populate), do: "populate=#{populate}"
 
-  """
-  def change_teacher(%Teacher{} = teacher, attrs \\ %{}) do
-    Teacher.changeset(teacher, attrs)
+  def add_photo_url(dic, placeholder \\ "/uploads/avatar_67198181e0.png") do
+    url = get_in(dic, ["photo", "formats", "small", "url"]) || placeholder
+    prefix = "http://localhost:1337"
+    Map.put(dic, "photo_url", prefix <> url)
   end
 end
