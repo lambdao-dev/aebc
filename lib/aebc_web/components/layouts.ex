@@ -11,6 +11,8 @@ defmodule AebcWeb.Layouts do
   use AebcWeb, :html
 
   import AebcWeb.LocaleSelector
+  import AebcWeb.Navbar
+  import AebcWeb.Footer
 
   embed_templates "layouts/*"
 end
