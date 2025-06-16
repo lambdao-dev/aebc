@@ -27,8 +27,7 @@ defmodule AebcWeb.TeacherLive.Index do
   def render(assigns) do
     ~H"""
     <.header>
-      Teachers (<%= @locale %>)
-      <:subtitle>A list of all available teachers.</:subtitle>
+      <%= gettext("Teachers") %>
     </.header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

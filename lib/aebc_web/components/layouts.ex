@@ -13,6 +13,7 @@ defmodule AebcWeb.Layouts do
   import AebcWeb.LocaleSelector
   import AebcWeb.Navbar
   import AebcWeb.Footer
+  import AebcWeb.ContactForm
 
   embed_templates "layouts/*"
 end

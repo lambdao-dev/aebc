@@ -20,7 +20,26 @@
             </div>
             <div class="flexbox-h-container">
                 <p class="text-lg text-[#3D52A0] md:text-xl">
-                    <span class="white_bg">Cours, ateliers, évènements autour de la culture chinoise.</span>
+                    <span class="white_bg"><%= gettext("Latest News.") %></span>
+                    <%= for news <- @latest_news do %>
+                        <li>
+                            <a href={"/posts/#{news["id"]}"}>
+                                <%= raw(news["name"]) %>
+                            </a>
+                        </li>
+                    <% end %>
+                </p>
+            </div>
+            <div class="flexbox-h-container">
+                <p class="text-lg text-[#3D52A0] md:text-xl">
+                    <span class="white_bg"><%= gettext("Latest Events.") %></span>
+                    <%= for event <- @events do %>
+                        <li>
+                            <a href={"/events/#{event["id"]}"}>
+                                <%= raw(event["name"]) %>
+                            </a>
+                        </li>
+                    <% end %>
                 </p>
             </div>
         </div>

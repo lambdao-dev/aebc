@@ -14,14 +14,14 @@ defmodule AebcWeb.CourseLive.Show do
     end
 
     if course do
-      socket =
-        assign(socket,
-          page_title: course["name"],
-          locale: locale,
-          course: course
-        )
+    socket =
+      assign(socket,
+        page_title: course["name"],
+        locale: locale,
+        course: course
+      )
 
-      {:ok, socket}
+    {:ok, socket}
     else
       {:ok,
        socket

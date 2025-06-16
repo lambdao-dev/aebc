@@ -19,116 +19,116 @@ msgstr ""
 #: lib/aebc_web/components/core_components.ex:160
 #, elixir-autogen, elixir-format
 msgid "Attempting to reconnect"
-msgstr ""
+msgstr "Tentative de reconnection..."
 
 #: lib/aebc_web/components/core_components.ex:151
 #, elixir-autogen, elixir-format
 msgid "Error!"
-msgstr ""
+msgstr "Erreur!"
 
 #: lib/aebc_web/components/core_components.ex:172
 #, elixir-autogen, elixir-format
 msgid "Hang in there while we get back on track"
-msgstr ""
+msgstr "Patientez pendant que l'on tente de récupérer..."
 
 #: lib/aebc_web/components/core_components.ex:167
 #, elixir-autogen, elixir-format
 msgid "Something went wrong!"
-msgstr ""
+msgstr "Un problème est survenu."
 
 #: lib/aebc_web/components/core_components.ex:150
 #, elixir-autogen, elixir-format
 msgid "Success!"
-msgstr ""
+msgstr "Succès!"
 
 #: lib/aebc_web/components/core_components.ex:155
 #, elixir-autogen, elixir-format
 msgid "We can't find the internet"
-msgstr ""
+msgstr "Connection perdue"
 
 #: lib/aebc_web/components/core_components.ex:76
 #: lib/aebc_web/components/core_components.ex:130
 #, elixir-autogen, elixir-format
 msgid "close"
-msgstr ""
+msgstr "fermer"
 
 #: lib/aebc_web/components/navbar.ex:29
 #: lib/aebc_web/live/course_live/index.ex:30
 #: lib/aebc_web/live/teacher_live/show.ex:45
 #, elixir-autogen, elixir-format
 msgid "Courses"
-msgstr ""
+msgstr "Cours"
 
 #: lib/aebc_web/components/navbar.ex:15
 #, elixir-autogen, elixir-format
 msgid "About"
-msgstr ""
+msgstr "A propos"
 
 #: lib/aebc_web/components/footer.ex:10
 #, elixir-autogen, elixir-format
 msgid "All rights reserved."
-msgstr ""
+msgstr "Tous droits réservés."
 
 #: lib/aebc_web/live/course_live/show.ex:53
 #, elixir-autogen, elixir-format
 msgid "Back to courses"
-msgstr ""
+msgstr "Retour aux cours"
 
 #: lib/aebc_web/live/director_live/show.ex:45
 #, elixir-autogen, elixir-format
 msgid "Back to directors"
-msgstr ""
+msgstr "Retour au directeurs"
 
 #: lib/aebc_web/live/event_live/show.ex:45
 #, elixir-autogen, elixir-format
 msgid "Back to events"
-msgstr ""
+msgstr "Retout aux évènements"
 
 #: lib/aebc_web/live/post_live/show.ex:45
 #, elixir-autogen, elixir-format
 msgid "Back to posts"
-msgstr ""
+msgstr "Retour aux news"
 
 #: lib/aebc_web/live/teacher_live/show.ex:57
 #, elixir-autogen, elixir-format
 msgid "Back to teachers"
-msgstr ""
+msgstr "Retour vers les Professeurs"
 
 #: lib/aebc_web/live/course_live/show.ex:37
 #, elixir-autogen, elixir-format
 msgid "Course"
-msgstr ""
+msgstr "Cours"
 
 #: lib/aebc_web/live/director_live/show.ex:37
 #, elixir-autogen, elixir-format
 msgid "Director"
-msgstr ""
+msgstr "Directeur"
 
 #: lib/aebc_web/components/navbar.ex:21
 #, elixir-autogen, elixir-format
 msgid "Directors"
-msgstr ""
+msgstr "Directeurs"
 
 #: lib/aebc_web/components/navbar.ex:38
 #, elixir-autogen, elixir-format
 msgid "Download"
-msgstr ""
+msgstr "Téléchargements"
 
 #: lib/aebc_web/live/event_live/show.ex:37
 #, elixir-autogen, elixir-format
 msgid "Event"
-msgstr ""
+msgstr "Evènement"
 
 #: lib/aebc_web/components/navbar.ex:26
 #: lib/aebc_web/live/event_live/index.ex:30
 #, elixir-autogen, elixir-format
 msgid "Events"
-msgstr ""
+msgstr "Evènements"
 
 #: lib/aebc_web/components/navbar.ex:18
 #, elixir-autogen, elixir-format
 msgid "Institute"
-msgstr ""
+msgstr "L'Institut"
 
 #: lib/aebc_web/components/navbar.ex:35
 #, elixir-autogen, elixir-format
@@ -138,35 +138,35 @@ msgstr ""
 #: lib/aebc_web/live/post_live/show.ex:37
 #, elixir-autogen, elixir-format
 msgid "Post"
-msgstr ""
+msgstr "News"
 
 #: lib/aebc_web/live/post_live/index.ex:30
 #, elixir-autogen, elixir-format
 msgid "Posts"
-msgstr ""
+msgstr "News"
 
 #: lib/aebc_web/live/course_live/show.ex:46
 #: lib/aebc_web/live/teacher_live/show.ex:37
 #, elixir-autogen, elixir-format
 msgid "Teacher"
-msgstr ""
+msgstr "Professeur"
 
 #: lib/aebc_web/components/navbar.ex:32
 #: lib/aebc_web/live/teacher_live/index.ex:30
 #, elixir-autogen, elixir-format
 msgid "Teachers"
-msgstr ""
+msgstr "Professeurs"
 
 #: lib/aebc_web/components/navbar.ex:41
 #, elixir-autogen, elixir-format
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: lib/aebc_web/components/contact_form.ex:12
 #: lib/aebc_web/live/contact_live.ex:8
 #, elixir-autogen, elixir-format
 msgid "Contact Us"
-msgstr ""
+msgstr "Contactez Nous"
 
 #: lib/aebc_web/components/contact_form.ex:27
 #, elixir-autogen, elixir-format
@@ -176,34 +176,34 @@ msgstr ""
 #: lib/aebc_web/components/contact_form.ex:39
 #, elixir-autogen, elixir-format
 msgid "How can we help you?"
-msgstr ""
+msgstr "Comment pouvons nous vous aider?"
 
 #: lib/aebc_web/controllers/page_html/home.html.heex:35
 #, elixir-autogen, elixir-format
 msgid "Latest Events."
-msgstr ""
+msgstr "Les derniers évènements"
 
 #: lib/aebc_web/controllers/page_html/home.html.heex:23
 #, elixir-autogen, elixir-format
 msgid "Latest News."
-msgstr ""
+msgstr "Les dernières news"
 
 #: lib/aebc_web/components/contact_form.ex:46
 #, elixir-autogen, elixir-format
 msgid "Send Question"
-msgstr ""
+msgstr "Envoyer"
 
 #: lib/aebc_web/live/contact_live.ex:20
 #, elixir-autogen, elixir-format
 msgid "Thank you for your question. We'll get back to you soon!"
-msgstr ""
+msgstr "Merci pour votre question. Nous vous répondrons bientôt!"
 
 #: lib/aebc_web/components/contact_form.ex:37
 #, elixir-autogen, elixir-format
 msgid "Your Question"
-msgstr ""
+msgstr "Votre Question"
 
 #: lib/aebc_web/components/contact_form.ex:29
 #, elixir-autogen, elixir-format
 msgid "your.email@example.com"
-msgstr ""
+msgstr "votre.email@exemple.com"

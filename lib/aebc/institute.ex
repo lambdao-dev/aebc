@@ -33,15 +33,25 @@ defmodule Aebc.Institute do
     get("/#{slug}?locale=#{locale}") |> parse_response()
   end
 
-  def get(model, id, locale \\ "fr", populate \\ nil) do
+  def get(model, id, locale \\ "fr", populate \\ nil, opts \\ %{}) do
     url = "/#{model}/#{id}?locale=#{locale}"
     url = if populate, do: "#{url}&#{build_populate_query(populate)}", else: url
+    params = Enum.map(opts, fn {key, value} -> "#{key}=#{value}" end)
+    url = case params do
+      [] -> url
+      _ -> url <> "&" <> Enum.join(params, "&")
+    end
     url |> get |> parse_response()
   end
 
-  def get_all(model, locale \\ "fr", populate \\ nil) do
+  def get_all(model, locale \\ "fr", populate \\ nil, opts \\ %{}) do
     url = "/#{model}?locale=#{locale}"
     url = if populate, do: "#{url}&#{build_populate_query(populate)}", else: url
+    params = Enum.map(opts, fn {key, value} -> "#{key}=#{value}" end)
+    url = case params do
+      [] -> url
+      _ -> url <> "&" <> Enum.join(params, "&")
+    end
     url |> get |> parse_response()
   end
 
@@ -56,5 +66,21 @@ defmodule Aebc.Institute do
     url = get_in(dic, ["photo", "formats", "small", "url"]) || placeholder
     prefix = "http://localhost:1337"
     Map.put(dic, "photo_url", prefix <> url)
+  end
+
+  def create_contact(params) do
+    # Data shape:
+    # {
+    #   "data": {
+    #     "email": "user@example.com",
+    #     "page": "string",
+    #     "question": "string",
+    #     "done": true,
+    #     "comment": "string"
+    #   }
+    # }
+    url = "/contacts"
+    resp = post(url, params)
+    parse_response(resp)
   end
 end

@@ -9,6 +9,11 @@
   color: #FF2499;
 }
 
+.max-w-88 {
+  margin: auto;
+  max-width: 88ch;
+}
+
 .fafa {
   color: #FF2499;
 }

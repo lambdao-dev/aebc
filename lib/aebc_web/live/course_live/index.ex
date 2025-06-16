@@ -27,8 +27,7 @@ defmodule AebcWeb.CourseLive.Index do
   def render(assigns) do
     ~H"""
     <.header>
-      <%= gettext("Courses") %> (<%= @locale %>)
-      <:subtitle><%= gettext("A list of all available Courses.") %></:subtitle>
+      <%= gettext("Courses") %>
     </.header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

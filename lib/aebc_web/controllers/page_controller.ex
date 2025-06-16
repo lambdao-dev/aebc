@@ -19,11 +19,34 @@ defmodule AebcWeb.PageController do
     end
     conn
     |> assign(:content, content)
+    |> assign(:page_title, name)
     |> render(template)
   end
 
   def home(conn, _params) do
-    single_page("home", :home, conn, _params)
+    locale = Gettext.get_locale(AebcWeb.Gettext)
+    {status, resp} = Institute.fetch_single_page("home", locale)
+    content = case status do
+      :ok -> resp
+      _error -> %{"main" => ""}
+    end
+    {status, events} = Institute.get_all("events", locale, nil, %{"pagination.pageSize": 5})
+    events = case status do
+      :ok -> events
+      _error -> []
+    end
+    {status, latest_news} = Institute.get_all("posts", locale, nil, %{"pagination.pageSize": 5})
+    latest_news = case status do
+      :ok -> latest_news
+      _error -> []
+    end
+
+    conn
+    |> assign(:content, content)
+    |> assign(:events, events)
+    |> assign(:latest_news, latest_news)
+    |> assign(:page_title, "AEBC Home")
+    |> render(:home, layout: {AebcWeb.Layouts, :app_simple})
   end
 
   def about(conn, _params) do  # TODO

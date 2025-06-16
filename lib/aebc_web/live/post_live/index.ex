@@ -27,8 +27,7 @@ defmodule AebcWeb.PostLive.Index do
   def render(assigns) do
     ~H"""
     <.header>
-      <%= gettext("Posts") %> (<%= @locale %>)
-      <:subtitle><%= gettext("A list of all available posts.") %></:subtitle>
+      <%= gettext("Posts") %>
     </.header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -37,6 +37,9 @@ defmodule AebcWeb.Navbar do
           <a href="/download" class="hover:text-zinc-700">
             <%= gettext("Download") %>
           </a>
+          <a href="/contact" class="hover:text-zinc-700">
+            <%= gettext("Contact") %>
+          </a>
           <.locale_selector />
         </div>
       </div>
