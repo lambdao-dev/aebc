@@ -36,7 +36,13 @@ if config_env() == :prod do
   host = System.get_env("PHX_HOST") || "example.com"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
+  # Strapi configuration for production
+  strapi_url_prefix = System.get_env("STRAPI_URL_PREFIX") || ""
+
   config :aebc, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
+
+  config :aebc, :strapi,
+    url_prefix: strapi_url_prefix
 
   config :aebc, AebcWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],

@@ -10,6 +10,10 @@ import Config
 config :aebc,
   generators: [timestamp_type: :utc_datetime]
 
+# Strapi configuration
+config :aebc, :strapi,
+  url_prefix: "http://localhost:1337"
+
 # Configures the endpoint
 config :aebc, AebcWeb.Endpoint,
   url: [host: "localhost"],

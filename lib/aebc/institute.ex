@@ -64,7 +64,7 @@ defmodule Aebc.Institute do
 
   def add_photo_url(dic, placeholder \\ "/uploads/avatar_67198181e0.png") do
     url = get_in(dic, ["photo", "formats", "small", "url"]) || placeholder
-    prefix = "http://localhost:1337"
+    prefix = AebcWeb.UrlHelper.strapi_url_prefix()
     Map.put(dic, "photo_url", prefix <> url)
   end
 
