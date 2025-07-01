@@ -39,10 +39,18 @@ if config_env() == :prod do
   # Strapi configuration for production
   strapi_url_prefix = System.get_env("STRAPI_URL_PREFIX") || ""
 
+  # Turnstile configuration for production
+  turnstile_site_key = System.get_env("TURNSTILE_SITE_KEY") || "1x00000000000000000000AA"
+  turnstile_secret_key = System.get_env("TURNSTILE_SECRET_KEY") || "1x0000000000000000000000000000000AA"
+
   config :aebc, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
 
   config :aebc, :strapi,
     url_prefix: strapi_url_prefix
+
+  config :aebc, :turnstile,
+    site_key: turnstile_site_key,
+    secret_key: turnstile_secret_key
 
   config :aebc, AebcWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],

@@ -14,6 +14,11 @@ config :aebc,
 config :aebc, :strapi,
   url_prefix: "http://localhost:1337"
 
+# Cloudflare Turnstile configuration
+config :aebc, :turnstile,
+  site_key: "1x00000000000000000000AA",
+  secret_key: "1x0000000000000000000000000000000AA"
+
 # Configures the endpoint
 config :aebc, AebcWeb.Endpoint,
   url: [host: "localhost"],
