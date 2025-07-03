@@ -11,11 +11,12 @@
         <%= raw(@content["main"]) %>
       <% end %>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Events and News: two columns on large screens, stacked on small -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div class="md:col-span-1 min-w-[60ch] max-w-88">
             <div class="flexbox-h-container">
                 <h1 class="text-3xl font-bold leading-tight md:text-3xl lg:text-3xl">
-                    <span class="bg-gradient-to-r from-[#00a8e8] to-[#0077b6] bg-clip-text dark:text-white">致力于比利时、中国多方面交流的平台 </span>Association d'échanges belgo-chinois
+                    <span class="">致力于比利时、中国多方面交流的平台 </span>Association d'échanges belgo-chinois
                 </h1>
             </div>
             <div class="flexbox-h-container">
@@ -23,29 +24,29 @@
                     <span class="white_bg">Cours, ateliers, évènements autour de la culture chinoise.</span>
                 </p>
             </div>
-            <div class="flexbox-h-container">
-                <p class="text-lg text-[#3D52A0] md:text-xl">
-                    <span class="white_bg block"><%= gettext("Latest News.") %></span>
-                    <%= for news <- @latest_news do %>
-                        <li>
-                            <.link navigate={~p"/posts/#{news["id"]}"}>
-                                <%= news["name"] %>
-                            </.link>
-                        </li>
-                    <% end %>
-                </p>
+            <div class="">
+                <span class="text-lg text-[#3D52A0] md:text-xl white_bg block"><%= gettext("Latest News.") %></span>
+                <ul>
+                <%= for news <- @latest_news do %>
+                    <li>
+                        <.link navigate={~p"/posts/#{news["id"]}"}>
+                            <%= news["name"] %>
+                        </.link>
+                    </li>
+                <% end %>
+                </ul>
             </div>
-            <div class="flexbox-h-container">
-                <p class="text-lg text-[#3D52A0] md:text-xl">
-                    <span class="white_bg"><%= gettext("Latest Events.") %></span>
-                    <%= for event <- @events do %>
-                        <li>
-                            <a href={"/events/#{event["id"]}"}>
-                                <%= raw(event["name"]) %>
-                            </a>
-                        </li>
-                    <% end %>
-                </p>
+            <div class="">
+                <span class="text-lg text-[#3D52A0] md:text-xl white_bg"><%= gettext("Latest Events.") %></span>
+                <ul>
+                <%= for event <- @events do %>
+                    <li>
+                        <a href={"/events/#{event["id"]}"}>
+                            <%= raw(event["name"]) %>
+                        </a>
+                    </li>
+                <% end %>
+                </ul>
             </div>
         </div>
         <div class="md:col-span-2 min-w-[60ch]">
