@@ -9,7 +9,7 @@ defmodule AebcWeb.ContactForm do
 
   def contact_form(assigns) do
     ~H"""
-    <div class={[
+    <div id="contact-form-wrapper" class={[
       "bg-white rounded-lg shadow-md max-w-88",
       @compact && "p-3",
       !@compact && "mt-8 p-6",
@@ -20,18 +20,13 @@ defmodule AebcWeb.ContactForm do
         @compact && "text-lg",
         !@compact && "text-xl"
       ]}><%= gettext("Contact Us") %></h2>
-      <.form
-        :let={f}
-        for={%{}}
-        as={:contact}
-        phx-submit="submit_contact"
-        class={[
-          "space-y-4",
-          @compact && "space-y-2"
-        ]}
-      >
+      <.form :let={f} for={%{}} as={:contact} phx-submit="submit_contact" id="contact-form" class={[
+        "space-y-4",
+        @compact && "space-y-2"
+      ]}>
         <input type="hidden" name="contact[state]" value="open" />
         <input type="hidden" name="contact[source_page]" value={@current_path} />
+        <input type="hidden" id="cf-turnstile-response" name="contact[cf-turnstile-response]" value="" />
 
         <div>
           <.input
@@ -56,8 +51,10 @@ defmodule AebcWeb.ContactForm do
           />
         </div>
 
+        <Turnstile.widget />
+
         <div>
-          <.button type="submit" class={[
+          <.button id="contact-submit-btn" type="submit" class={[
             "w-full",
             @compact && "py-1 px-3 text-sm"
           ]}>
