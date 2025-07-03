@@ -7,7 +7,7 @@ defmodule AebcWeb.ContactLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, page_title: gettext("Contact Us"), layout: {AebcWeb.Layouts, "app_simple"})}
+    {:ok, assign(socket, form_submitted: false, page_title: gettext("Contact Us"), layout: {AebcWeb.Layouts, "app_simple"})}
   end
 
   @impl true
@@ -18,23 +18,22 @@ defmodule AebcWeb.ContactLive do
         contact = Map.put(contact, "done", false)
         payload = %{"data" => contact}
         Institute.create_contact(payload)
-        {:noreply,
-         socket
-         |> put_flash(:info, gettext("Thank you for your question. We'll get back to you soon!"))
-         |> assign(:form_submitted, true)}
+        {:noreply, assign(socket, form_submitted: true)}
 
       {:error, error_message} ->
-        {:noreply,
-         socket
-         |> put_flash(:error, gettext("Verification failed. Please try again."))
-         |> assign(:turnstile_error, error_message)}
+        socket =
+          socket
+          |> put_flash(:error, gettext("Verification failed. Please try again."))
+          |> Turnstile.refresh()
+
+        {:noreply, socket}
     end
   end
 
   @impl true
   def render(assigns) do
     ~H"""
-      <.contact_form current_path={@page_title} />
+      <.contact_form current_path={@page_title} form_submitted={@form_submitted} />
     """
   end
 

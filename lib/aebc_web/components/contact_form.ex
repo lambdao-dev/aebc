@@ -53,14 +53,20 @@ defmodule AebcWeb.ContactForm do
 
         <Turnstile.widget />
 
-        <div>
-          <.button id="contact-submit-btn" type="submit" class={[
-            "w-full",
-            @compact && "py-1 px-3 text-sm"
-          ]}>
-            <%= gettext("Send Question") %>
-          </.button>
-        </div>
+        <%= if @form_submitted do %>
+          <div class="alert alert-success">
+            <%= gettext("Thank you for your question!") %>
+          </div>
+        <% else %>
+          <div>
+            <.button id="contact-submit-btn" type="submit" class={[
+              "w-full",
+              @compact && "py-1 px-3 text-sm"
+            ]}>
+              <%= gettext("Send Question") %>
+            </.button>
+          </div>
+        <% end %>
       </.form>
     </div>
     """
