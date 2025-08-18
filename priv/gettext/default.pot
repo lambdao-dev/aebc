@@ -52,14 +52,14 @@ msgstr ""
 msgid "close"
 msgstr ""
 
-#: lib/aebc_web/components/navbar.ex:29
+#: lib/aebc_web/components/navbar.ex:42
 #: lib/aebc_web/live/course_live/index.ex:30
 #: lib/aebc_web/live/teacher_live/show.ex:45
 #, elixir-autogen, elixir-format
 msgid "Courses"
 msgstr ""
 
-#: lib/aebc_web/components/navbar.ex:15
+#: lib/aebc_web/components/navbar.ex:38
 #, elixir-autogen, elixir-format
 msgid "About"
 msgstr ""
@@ -104,12 +104,12 @@ msgstr ""
 msgid "Director"
 msgstr ""
 
-#: lib/aebc_web/components/navbar.ex:21
+#: lib/aebc_web/components/navbar.ex:40
 #, elixir-autogen, elixir-format
 msgid "Directors"
 msgstr ""
 
-#: lib/aebc_web/components/navbar.ex:38
+#: lib/aebc_web/components/navbar.ex:45
 #, elixir-autogen, elixir-format
 msgid "Download"
 msgstr ""
@@ -119,18 +119,18 @@ msgstr ""
 msgid "Event"
 msgstr ""
 
-#: lib/aebc_web/components/navbar.ex:26
+#: lib/aebc_web/components/navbar.ex:41
 #: lib/aebc_web/live/event_live/index.ex:30
 #, elixir-autogen, elixir-format
 msgid "Events"
 msgstr ""
 
-#: lib/aebc_web/components/navbar.ex:18
+#: lib/aebc_web/components/navbar.ex:39
 #, elixir-autogen, elixir-format
 msgid "Institute"
 msgstr ""
 
-#: lib/aebc_web/components/navbar.ex:35
+#: lib/aebc_web/components/navbar.ex:44
 #, elixir-autogen, elixir-format
 msgid "News"
 msgstr ""
@@ -151,59 +151,64 @@ msgstr ""
 msgid "Teacher"
 msgstr ""
 
-#: lib/aebc_web/components/navbar.ex:32
+#: lib/aebc_web/components/navbar.ex:43
 #: lib/aebc_web/live/teacher_live/index.ex:30
 #, elixir-autogen, elixir-format
 msgid "Teachers"
 msgstr ""
 
-#: lib/aebc_web/components/navbar.ex:41
+#: lib/aebc_web/components/navbar.ex:46
 #, elixir-autogen, elixir-format
 msgid "Contact"
 msgstr ""
 
-#: lib/aebc_web/components/contact_form.ex:12
-#: lib/aebc_web/live/contact_live.ex:8
+#: lib/aebc_web/components/contact_form.ex:22
+#: lib/aebc_web/live/contact_live.ex:10
 #, elixir-autogen, elixir-format
 msgid "Contact Us"
 msgstr ""
 
-#: lib/aebc_web/components/contact_form.ex:27
+#: lib/aebc_web/components/contact_form.ex:35
 #, elixir-autogen, elixir-format
 msgid "Email"
 msgstr ""
 
-#: lib/aebc_web/components/contact_form.ex:39
+#: lib/aebc_web/components/contact_form.ex:48
 #, elixir-autogen, elixir-format
 msgid "How can we help you?"
 msgstr ""
 
-#: lib/aebc_web/controllers/page_html/home.html.heex:35
+#: lib/aebc_web/controllers/page_html/home.html.heex:40
 #, elixir-autogen, elixir-format
 msgid "Latest Events."
 msgstr ""
 
-#: lib/aebc_web/controllers/page_html/home.html.heex:23
+#: lib/aebc_web/controllers/page_html/home.html.heex:28
 #, elixir-autogen, elixir-format
 msgid "Latest News."
 msgstr ""
 
-#: lib/aebc_web/components/contact_form.ex:46
+#: lib/aebc_web/components/contact_form.ex:66
 #, elixir-autogen, elixir-format
 msgid "Send Question"
 msgstr ""
 
-#: lib/aebc_web/live/contact_live.ex:20
-#, elixir-autogen, elixir-format
-msgid "Thank you for your question. We'll get back to you soon!"
-msgstr ""
-
-#: lib/aebc_web/components/contact_form.ex:37
+#: lib/aebc_web/components/contact_form.ex:46
 #, elixir-autogen, elixir-format
 msgid "Your Question"
 msgstr ""
 
-#: lib/aebc_web/components/contact_form.ex:29
+#: lib/aebc_web/components/contact_form.ex:37
 #, elixir-autogen, elixir-format
 msgid "your.email@example.com"
+msgstr ""
+
+#: lib/aebc_web/components/contact_form.ex:58
+#, elixir-autogen, elixir-format
+msgid "Thank you for your question!"
+msgstr ""
+
+#: lib/aebc_web/live/contact_live.ex:26
+#, elixir-autogen, elixir-format
+msgid "Verification failed. Please try again."
 msgstr ""
