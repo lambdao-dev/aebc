@@ -82,7 +82,7 @@ msgstr "Retour au directeurs"
 #: lib/aebc_web/live/event_live/show.ex:45
 #, elixir-autogen, elixir-format
 msgid "Back to events"
-msgstr "Retout aux évènements"
+msgstr "Retour aux évènements"
 
 #: lib/aebc_web/live/post_live/show.ex:45
 #, elixir-autogen, elixir-format
