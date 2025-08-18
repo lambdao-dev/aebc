@@ -35,14 +35,15 @@ defmodule AebcWeb.Navbar do
              lg:static lg:w-auto lg:bg-transparent lg:shadow-none lg:flex lg:flex-row lg:max-h-none lg:overflow-visible"
       id="navbar-menu"
     >
-      <a href="/about" class="hover:text-zinc-700 block px-4 py-2 lg:p-0">About</a>
-      <a href="/institute" class="hover:text-zinc-700 block px-4 py-2 lg:p-0">Institute</a>
-      <a href="/directors" class="hover:text-zinc-700 block px-4 py-2 lg:p-0">Directors</a>
-      <a href="/events" class="hover:text-zinc-700 block px-4 py-2 lg:p-0">Events</a>
-      <a href="/courses" class="hover:text-zinc-700 block px-4 py-2 lg:p-0">Courses</a>
-      <a href="/teachers" class="hover:text-zinc-700 block px-4 py-2 lg:p-0">Teachers</a>
-      <a href="/posts" class="hover:text-zinc-700 block px-4 py-2 lg:p-0">News</a>
-      <a href="/download" class="hover:text-zinc-700 block px-4 py-2 lg:p-0">Download</a>
+      <a href="/about" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("About")%></a>
+      <a href="/institute" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Institute")%></a>
+      <a href="/directors" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Directors")%></a>
+      <a href="/events" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Events")%></a>
+      <a href="/courses" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Courses")%></a>
+      <a href="/teachers" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Teachers")%></a>
+      <a href="/posts" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("News")%></a>
+      <a href="/download" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Download")%></a>
+      <a href="/contact" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Contact")%></a>
       <.locale_selector />
     </nav>
   </div>
