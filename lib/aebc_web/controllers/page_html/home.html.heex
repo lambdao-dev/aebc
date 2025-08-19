@@ -11,46 +11,65 @@
         <%= raw(@content["main"]) %>
       <% end %>
     </div>
-    <!-- Events and News: two columns on large screens, stacked on small -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="md:col-span-1 min-w-[60ch] max-w-88">
-            <div class="flexbox-h-container">
-                <h1 class="text-3xl font-bold leading-tight md:text-3xl lg:text-3xl">
-                    <span class="">致力于比利时、中国多方面交流的平台 </span>Association d'échanges belgo-chinois
-                </h1>
-            </div>
-            <div class="flexbox-h-container">
-                <p class="text-lg text-[#3D52A0] md:text-xl">
-                    <span class="white_bg">Cours, ateliers, évènements autour de la culture chinoise.</span>
-                </p>
-            </div>
-            <div class="">
-                <span class="text-lg text-[#3D52A0] md:text-xl white_bg block"><%= gettext("Latest News.") %></span>
-                <ul>
-                <%= for news <- @latest_news do %>
-                    <li>
-                        <.link navigate={~p"/posts/#{news["id"]}"}>
-                            <%= news["name"] %>
-                        </.link>
-                    </li>
-                <% end %>
-                </ul>
-            </div>
-            <div class="">
-                <span class="text-lg text-[#3D52A0] md:text-xl white_bg"><%= gettext("Latest Events.") %></span>
-                <ul>
-                <%= for event <- @events do %>
-                    <li>
-                        <a href={"/events/#{event["id"]}"}>
-                            <%= raw(event["name"]) %>
-                        </a>
-                    </li>
-                <% end %>
-                </ul>
-            </div>
-        </div>
-        <div class="md:col-span-2 min-w-[60ch]">
-            <iframe style="border:1px solid #777;min-height:600px;width:100%;" src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=2&amp;ctz=Europe%2FParis&amp;showPrint=0&amp;title=AEBC%20Events&amp;src=M2YzZmE2ZjQ4MTkyNGIwNzNhZTllODM2Njk5ZDkwZDM1MzRkNWE2YjcyNjhmYjY4MmI4MDViMWYyMzU4NzMwZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23C0CA33" frameborder="0" scrolling="no"></iframe>
-        </div>
+
+<div class="container mx-auto px-4 py-8">
+  <!-- Intro Text -->
+  <div class="mb-6">
+    <h1 class="text-3xl font-bold leading-tight md:text-4xl">
+      <span>致力于比利时、中国多方面交流的平台</span> Association d'échanges belgo-chinois
+    </h1>
+    <p class="text-lg text-[#3D52A0] mt-2">
+      <span class="bg-white px-1">Cours, ateliers, évènements autour de la culture chinoise.</span>
+    </p>
+  </div>
+
+  <!-- Grid Layout -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Left Column: News + Events -->
+    <div class="space-y-6">
+      <!-- Latest News -->
+      <div>
+        <h2 class="text-xl font-semibold text-[#3D52A0] mb-2">
+          <%= gettext("Latest News.") %>
+        </h2>
+        <ul class="list-disc list-inside space-y-1">
+          <%= for news <- @latest_news do %>
+            <li>
+              <.link navigate={~p"/posts/#{news["id"]}"} class="text-blue-600 hover:underline">
+                <%= news["name"] %>
+              </.link>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <!-- Latest Events -->
+      <div>
+        <h2 class="text-xl font-semibold text-[#3D52A0] mb-2">
+          <%= gettext("Latest Events.") %>
+        </h2>
+        <ul class="list-disc list-inside space-y-1">
+          <%= for event <- @events do %>
+            <li>
+              <a href={"/events/#{event["id"]}"} class="text-blue-600 hover:underline">
+                <%= raw(event["name"]) %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
+
+    <!-- Right Column: Calendar -->
+    <div>
+      <iframe
+        src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=2&amp;ctz=Europe%2FParis&amp;showPrint=0&amp;title=AEBC%20Events&amp;src=M2YzZmE2ZjQ4MTkyNGIwNzNhZTllODM2Njk5ZDkwZDM1MzRkNWE2YjcyNjhmYjY4MmI4MDViMWYyMzU4NzMwZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23C0CA33"
+        class="w-full h-[500px] border border-gray-300 rounded"
+        frameborder="0"
+        scrolling="no"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
 </main>
