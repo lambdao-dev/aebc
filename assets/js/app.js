@@ -27,6 +27,27 @@ let Hooks = {};
 
 Hooks.Turnstile = TurnstileHook
 
+// Locale Selector Hook
+Hooks.LocaleSelector = {
+  mounted() {
+    this.el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const locale = this.el.dataset.locale;
+      this.changeLocale(locale);
+    });
+  },
+  
+  changeLocale(locale) {
+    const currentUrl = new URL(window.location.href);
+    
+    // Update or add the locale parameter
+    currentUrl.searchParams.set('locale', locale);
+    
+    // Navigate to the new URL
+    window.location.href = currentUrl.toString();
+  }
+};
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {
   hooks: Hooks,
