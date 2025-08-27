@@ -1,56 +1,81 @@
 <main class="mx-auto flex-1 px-4 md:px-6">
-    <div id="titlelogo">
+    <!-- Title/Logo Row -->
+    <header class="mb-6">
         <div class="mx-auto space-y-6 py-12 md:py-24 lg:py-2">
             <p>
                 <img src={AebcWeb.UrlHelper.strapi_url("/uploads/aebc_logo2_f4d8cfdfc6.webp")} alt="aebc-logo2.webp" srcset={AebcWeb.UrlHelper.strapi_url("/uploads/thumbnail_aebc_logo2_f4d8cfdfc6.webp") <> " 245w," <> AebcWeb.UrlHelper.strapi_url("/uploads/small_aebc_logo2_f4d8cfdfc6.webp") <> " 500w," <> AebcWeb.UrlHelper.strapi_url("/uploads/medium_aebc_logo2_f4d8cfdfc6.webp") <> " 750w,"} sizes="100vw" width="960" height="519">
             </p>
         </div>
-    </div>
-    <div class="max-w-88">
-      <%= if @content do %>
-        <%= raw(@content["main"]) %>
-      <% end %>
-    </div>
-    <!-- Events and News: two columns on large screens, stacked on small -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="md:col-span-1 min-w-[60ch] max-w-88">
-            <div class="flexbox-h-container">
-                <h1 class="text-3xl font-bold leading-tight md:text-3xl lg:text-3xl">
-                    <span class="">致力于比利时、中国多方面交流的平台 </span>Association d'échanges belgo-chinois
-                </h1>
-            </div>
-            <div class="flexbox-h-container">
-                <p class="text-lg text-[#3D52A0] md:text-xl">
-                    <span class="white_bg">Cours, ateliers, évènements autour de la culture chinoise.</span>
-                </p>
-            </div>
-            <div class="">
-                <span class="text-lg text-[#3D52A0] md:text-xl white_bg block"><%= gettext("Latest News.") %></span>
-                <ul>
-                <%= for news <- @latest_news do %>
-                    <li>
-                        <.link navigate={~p"/posts/#{news["id"]}"}>
-                            <%= news["name"] %>
-                        </.link>
-                    </li>
-                <% end %>
+    </header>
+
+    <!-- Prominent Text Row -->
+    <section class="mb-8">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold leading-tight md:text-3xl lg:text-3xl mb-4">
+                <span class="">致力于比利时、中国多方面交流的平台</span>
+            </h1>
+            <p class="text-2xl font-semibold text-indigo-700">
+                Association d'échanges belgo-chinois
+            </p>
+            <p class="text-lg text-[#3D52A0] md:text-xl mt-2">
+                <span class="white_bg">Cours, ateliers, évènements autour de la culture chinoise.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Two-Column Layout -->
+    <section class="flex flex-col lg:flex-row gap-6">
+        
+        <!-- List Column -->
+        <div class="basis-[60ch] flex-shrink-0 lg:w-1/3 bg-white shadow p-4 rounded">
+            <h2 class="text-xl font-semibold mb-4"><%= gettext("Latest News & Events") %></h2>
+            
+            <div class="mb-6">
+                <h3 class="text-lg font-medium text-[#3D52A0] mb-3"><%= gettext("Latest News.") %></h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <%= for news <- @latest_news do %>
+                        <li>
+                            <.link navigate={~p"/posts/#{news["id"]}"} class="text-blue-600 hover:text-blue-800">
+                                <%= news["name"] %>
+                            </.link>
+                        </li>
+                    <% end %>
                 </ul>
             </div>
+            
             <div class="">
-                <span class="text-lg text-[#3D52A0] md:text-xl white_bg"><%= gettext("Latest Events.") %></span>
-                <ul>
-                <%= for event <- @events do %>
-                    <li>
-                        <a href={"/events/#{event["id"]}"}>
-                            <%= raw(event["name"]) %>
-                        </a>
-                    </li>
-                <% end %>
+                <h3 class="text-lg font-medium text-[#3D52A0] mb-3"><%= gettext("Latest Events.") %></h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <%= for event <- @events do %>
+                        <li>
+                            <a href={"/events/#{event["id"]}"} class="text-blue-600 hover:text-blue-800">
+                                <%= raw(event["name"]) %>
+                            </a>
+                        </li>
+                    <% end %>
                 </ul>
             </div>
         </div>
-        <div class="md:col-span-2 min-w-[60ch]">
-            <iframe style="border:1px solid #777;min-height:600px;width:100%;" src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=2&amp;ctz=Europe%2FParis&amp;showPrint=0&amp;title=AEBC%20Events&amp;src=M2YzZmE2ZjQ4MTkyNGIwNzNhZTllODM2Njk5ZDkwZDM1MzRkNWE2YjcyNjhmYjY4MmI4MDViMWYyMzU4NzMwZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23C0CA33" frameborder="0" scrolling="no"></iframe>
+
+        <!-- Calendar Column -->
+        <div class="flex-grow bg-white shadow p-4 rounded">
+            <h2 class="text-xl font-semibold mb-4">AEBC Events Calendar</h2>
+            <iframe 
+                src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=2&amp;ctz=Europe%2FParis&amp;showPrint=0&amp;title=AEBC%20Events&amp;src=M2YzZmE2ZjQ4MTkyNGIwNzNhZTllODM2Njk5ZDkwZDM1MzRkNWE2YjcyNjhmYjY4MmI4MDViMWYyMzU4NzMwZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23C0CA33" 
+                class="w-full h-96 rounded" 
+                frameborder="0" 
+                scrolling="no">
+            </iframe>
         </div>
-    </div>
+
+    </section>
+
+    <!-- Additional Content Section -->
+    <%= if @content do %>
+        <section class="mt-8">
+            <div class="max-w-88">
+                <%= raw(@content["main"]) %>
+            </div>
+        </section>
+    <% end %>
 </main>
