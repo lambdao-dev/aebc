@@ -12,13 +12,14 @@ module.exports = {
     "../lib/aebc_web/**/*.*ex"
   ],
   safelist: [
-    "hidden",
-    "inline-flex",
-    'peer',
-    'peer-checked:block',
-    "peer-checked:max-h-96",
-    "peer-checked:flex",
-    "lg:static",
+    "*",
+    // "hidden",
+    // "inline-flex",
+    // 'peer',
+    // 'peer-checked:block',
+    // "peer-checked:max-h-96",
+    // "peer-checked:flex",
+    // "lg:static",
   ],
   theme: {
     extend: {
