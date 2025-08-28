@@ -18,9 +18,9 @@ defmodule AebcWeb.Navbar do
   </div>
   <div class="nav-btn">
     <label for="nav-check">
-      <span></span>
-      <span></span>
-      <span></span>
+    <span class="block w-[25px] h-[10px] border-t-2 border-black dark:border-white"></span>
+<span class="block w-[25px] h-[10px] border-t-2 border-black dark:border-white"></span>
+<span class="block w-[25px] h-[10px] border-t-2 border-black dark:border-white"></span>
     </label>
   </div>
 

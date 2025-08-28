@@ -12,8 +12,8 @@ defmodule AebcWeb.LocaleSelector do
           data-locale={locale}
           class={[
             "px-2 py-1 rounded text-sm",
-            Gettext.get_locale(AebcWeb.Gettext) == locale && "bg-zinc-900 text-white",
-            Gettext.get_locale(AebcWeb.Gettext) != locale && "text-zinc-600 hover:text-zinc-900"
+            Gettext.get_locale(AebcWeb.Gettext) == locale && "bg-zinc-300 text-white",
+            Gettext.get_locale(AebcWeb.Gettext) != locale && "text-black hover:text-zinc-900"
           ]}
         >
           <%= String.upcase(locale) %>
