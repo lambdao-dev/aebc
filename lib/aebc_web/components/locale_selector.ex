@@ -6,8 +6,10 @@ defmodule AebcWeb.LocaleSelector do
     ~H"""
     <div class="flex items-center gap-2">
       <%= for locale <- Gettext.known_locales(AebcWeb.Gettext) do %>
-        <.link
-          href={"/?locale=#{locale}"}
+      <button
+          id={"locale-selector-#{locale}"}
+          phx-hook="LocaleSelector"
+          data-locale={locale}
           class={[
             "px-2 py-1 rounded text-sm",
             Gettext.get_locale(AebcWeb.Gettext) == locale && "bg-zinc-900 text-white",
@@ -15,7 +17,7 @@ defmodule AebcWeb.LocaleSelector do
           ]}
         >
           <%= String.upcase(locale) %>
-        </.link>
+        </button>
       <% end %>
     </div>
     """
