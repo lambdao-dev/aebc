@@ -1,75 +1,75 @@
 <main class="mx-auto flex-1 px-4 md:px-6">
-    <div id="titlelogo">
+    <!-- Title/Logo Row -->
+    <header class="mb-6">
         <div class="mx-auto space-y-6 py-12 md:py-24 lg:py-2">
             <p>
                 <img src={AebcWeb.UrlHelper.strapi_url("/uploads/aebc_logo2_f4d8cfdfc6.webp")} alt="aebc-logo2.webp" srcset={AebcWeb.UrlHelper.strapi_url("/uploads/thumbnail_aebc_logo2_f4d8cfdfc6.webp") <> " 245w," <> AebcWeb.UrlHelper.strapi_url("/uploads/small_aebc_logo2_f4d8cfdfc6.webp") <> " 500w," <> AebcWeb.UrlHelper.strapi_url("/uploads/medium_aebc_logo2_f4d8cfdfc6.webp") <> " 750w,"} sizes="100vw" width="960" height="519">
             </p>
         </div>
-    </div>
-    <div class="max-w-88">
-      <%= if @content do %>
-        <%= raw(@content["main"]) %>
-      <% end %>
-    </div>
+    </header>
+ <!-- Prominent Text Row -->
+    <section class="mb-8">
+        <div class="text-center">
+            <h1 class="text-3xl font-bold leading-tight md:text-3xl lg:text-3xl mb-4">
+                <span class="">致力于比利时、中国多方面交流的平台</span>
+            </h1>
+            <p class="text-2xl font-semibold text-indigo-700">
+                Association d'échanges belgo-chinois
+            </p>
+        </div>
+    </section>
 
-<div class="container mx-auto px-4 py-8">
-  <!-- Intro Text -->
-  <div class="mb-6">
-    <h1 class="text-3xl font-bold leading-tight md:text-4xl">
-      <span>致力于比利时、中国多方面交流的平台</span> Association d'échanges belgo-chinois
-    </h1>
-    <p class="text-lg text-[#3D52A0] mt-2">
-      <span class="bg-white px-1">Cours, ateliers, évènements autour de la culture chinoise.</span>
-    </p>
-  </div>
+    <!-- Two-Column Layout -->
+    <section class="flex flex-col lg:flex-row gap-6">
 
-  <!-- Grid Layout -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-    <!-- Left Column: News + Events -->
-    <div class="space-y-6">
-      <!-- Latest News -->
-      <div>
-        <h2 class="text-xl font-semibold text-[#3D52A0] mb-2">
-          <%= gettext("Latest News.") %>
-        </h2>
-        <ul class="list-disc list-inside space-y-1">
-          <%= for news <- @latest_news do %>
-            <li>
-              <.link navigate={~p"/posts/#{news["id"]}"} class="text-blue-600 hover:underline">
-                <%= news["name"] %>
-              </.link>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+        <!-- List Column -->
+        <div class="basis-[60ch] flex-shrink-0 lg:w-1/3 bg-white shadow p-4 rounded">
+            <h2 class="text-xl font-semibold mb-4"><%= gettext("Latest News & Events") %></h2>
 
-      <!-- Latest Events -->
-      <div>
-        <h2 class="text-xl font-semibold text-[#3D52A0] mb-2">
-          <%= gettext("Latest Events.") %>
-        </h2>
-        <ul class="list-disc list-inside space-y-1">
-          <%= for event <- @events do %>
-            <li>
-              <a href={"/events/#{event["id"]}"} class="text-blue-600 hover:underline">
-                <%= raw(event["name"]) %>
-              </a>
-            </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+            <div class="mb-6">
+                <h3 class="text-lg font-medium text-[#3D52A0] mb-3"><%= gettext("Latest News.") %></h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <%= for news <- @latest_news do %>
+                        <li>
+                            <.link navigate={~p"/posts/#{news["id"]}"} class="text-blue-600 hover:text-blue-800">
+                                <%= news["name"] %>
+                            </.link>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
 
-    <!-- Right Column: Calendar -->
-    <div>
-      <iframe
-        src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=2&amp;ctz=Europe%2FParis&amp;showPrint=0&amp;title=AEBC%20Events&amp;src=M2YzZmE2ZjQ4MTkyNGIwNzNhZTllODM2Njk5ZDkwZDM1MzRkNWE2YjcyNjhmYjY4MmI4MDViMWYyMzU4NzMwZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23C0CA33"
-        class="w-full h-[500px] border border-gray-300 rounded"
-        frameborder="0"
-        scrolling="no"
-      ></iframe>
-    </div>
-  </div>
-</div>
+            <div class="">
+            <h3 class="text-lg font-medium text-[#3D52A0] mb-3"><%= gettext("Latest Events.") %></h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <%= for event <- @events do %>
+                        <li>
+                            <a href={"/events/#{event["id"]}"} class="text-blue-600 hover:text-blue-800">
+                                <%= raw(event["name"]) %>
+                            </a>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+          <!-- Calendar Column -->
+        <div class="flex-grow bg-white shadow p-4 rounded">
+            <h2 class="text-xl font-semibold mb-4">AEBC Events Calendar</h2>
+            <iframe 
+                src="https://calendar.google.com/calendar/embed?height=500&amp;wkst=2&amp;ctz=Europe%2FParis&amp;showPrint=0&amp;title=AEBC%20Events&amp;src=M2YzZmE2ZjQ4MTkyNGIwNzNhZTllODM2Njk5ZDkwZDM1MzRkNWE2YjcyNjhmYjY4MmI4MDViMWYyMzU4NzMwZkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&amp;color=%23C0CA33" 
+                class="w-full h-96 rounded" 
+                frameborder="0" 
+                scrolling="no">
+            </iframe>
+        </div>
+        </section>
 
+      <!-- Additional Content Section -->
+    <%= if @content do %>
+        <section class="mt-8">
+            <div class="max-w-88">
+                <%= raw(@content["main"]) %>
+            </div>
+        </section>
+    <% end %>
 </main>
