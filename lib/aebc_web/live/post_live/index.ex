@@ -5,8 +5,9 @@ defmodule AebcWeb.PostLive.Index do
   use Gettext, backend: AebcWeb.Gettext
 
   @impl true
-  def mount(_params, session, socket) do
-    locale = Gettext.get_locale(AebcWeb.Gettext)
+  def mount(params, _session, socket) do
+    locale = Map.get(params, "locale", Gettext.get_locale(AebcWeb.Gettext))
+    Gettext.put_locale(AebcWeb.Gettext, locale)
     {status, resp} = Institute.get_all("posts", locale)
     posts = case status do
       :ok -> resp
