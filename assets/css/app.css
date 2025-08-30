@@ -191,11 +191,12 @@ body {
     position: absolute;
     display: block;
     width: 100%;
-    background-color: transparent;
+    background-color: white; /* Light mode */
+    z-index: 50;
     height: 0px;
     transition: all 0.3s ease-in;
     overflow-y: hidden;
-    top: 50px;
+    top: 70px;
     left: 0px;
   }
   .nav > .nav-links > a {
