@@ -122,7 +122,6 @@ body {
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  background-color: transparent;
   padding: 0 10px;
 }
 
@@ -150,14 +149,15 @@ body {
   padding: 0.5em 0.75em;
   text-decoration: none;
   color: black; /* Light mode default */
-  background: none;
-  border: none;
+  background-color: transparent;
   display: block; /* for mobile */
   white-space: nowrap; /* prevents wrapping */
 }
 
 .nav-links > a:hover {
   text-decoration: underline;
+  background-color: rgba(245, 130, 91, 0.3); /* Light mode default */
+  border-radius:6px;
 }
 
 .nav > #nav-check {
@@ -177,9 +177,7 @@ body {
     height: 50px;
     padding: 13px;
   }
-  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-    background-color: transparent;
-  }
+
   .nav > .nav-btn > label > span {
     display: block;
     width: 25px;
@@ -201,8 +199,6 @@ body {
   .nav > .nav-links > a {
     display: block;
     width: 100%;
-    background-color: transparent;
-
   }
 
   .nav > #nav-check:not(:checked) ~ .nav-links {
