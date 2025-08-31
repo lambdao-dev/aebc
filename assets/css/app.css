@@ -156,7 +156,7 @@ body {
 
 .nav-links > a:hover {
   text-decoration: underline;
-  background-color: rgba(245, 130, 91, 0.3); /* Light mode default */
+  background-color: rgba(158, 187, 255, 0.6); /* Light mode default */
   border-radius:6px;
 }
 
