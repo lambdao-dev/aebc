@@ -46,7 +46,7 @@ defmodule AebcWeb.PageController do
     |> assign(:events, events)
     |> assign(:latest_news, latest_news)
     |> assign(:page_title, "AEBC Home")
-    |> render(:home, layout: {AebcWeb.Layouts, :app_simple})
+    |> render(:home, layout: {AebcWeb.Layouts, :app_wide})
   end
 
   def about(conn, _params) do  # TODO
