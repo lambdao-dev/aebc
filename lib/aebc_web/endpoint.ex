@@ -25,12 +25,6 @@ defmodule AebcWeb.Endpoint do
     gzip: false,
     only: AebcWeb.static_paths()
 
-  if Code.ensure_loaded?(Tidewave) do
-    plug Tidewave,
-    allow_remote_access: true,
-    allowed_origins: ["http://aebc.lambdao.org"]
-  end
-
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do

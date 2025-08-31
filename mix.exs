@@ -8,7 +8,7 @@ defmodule Aebc.MixProject do
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
-      consolidate_protocols: Mix.env() != :dev,
+      # consolidate_protocols: Mix.env() != :dev,
       aliases: aliases(),
       deps: deps()
     ]
@@ -33,8 +33,6 @@ defmodule Aebc.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      # {:tidewave, "~> 0.4", only: [:dev]},
-      {:tidewave, "~> 0.4"}, # remove `only: :dev`
       {:igniter, "~> 0.5", only: [:dev, :test]},
       {:tesla, "~> 1.4"},
       {:phoenix, "~> 1.7.20"},
