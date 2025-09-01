@@ -1,5 +1,7 @@
 defmodule AebcWeb.PostLive.Show do
   use AebcWeb, :live_view
+  use Phoenix.LiveView,
+    layout: {AebcWeb.Layouts, :app_wide}
 
   alias Aebc.Institute
   use Gettext, backend: AebcWeb.Gettext
