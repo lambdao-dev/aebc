@@ -40,15 +40,27 @@ defmodule AebcWeb.CourseLive.Show do
       <:subtitle>{@course["short"]}</:subtitle>
     </.header>
 
-    <img class="w-full h-48 object-cover" src={@course["photo_url"]} alt={@course["name"]} />
+    <img
+      class="w-full h-48 object-cover mb-8"
+      src={@course["photo_url"]}
+      alt={@course["name"]}
+    />
 
     <%= raw(@course["description"]) %>
 
     <%= if @course["teacher"] do %>
-      <h2><%= gettext("Teacher") %></h2>
-      <.link navigate={~p"/teachers/#{@course["teacher"]["id"]}"}>
-        <%= @course["teacher"]["name"] %>
-      </.link>
+      <div class="border border-gray-300 rounded-lg p-6 bg-gray-50 mt-10 max-w-[50%]">
+        <h2 class="text-2xl font-semibold mb-4 px-4 py-2 bg-blue-100 rounded text-blue-900">
+          <%= gettext("Teacher") %>
+        </h2>
+
+        <.link
+          navigate={~p"/teachers/#{@course["teacher"]["id"]}"}
+          class="text-blue-600 hover:underline px-2"
+        >
+          <%= @course["teacher"]["name"] %>
+        </.link>
+      </div>
     <% end %>
 
     <.back navigate={~p"/courses"}>
