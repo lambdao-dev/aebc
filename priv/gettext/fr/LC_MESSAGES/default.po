@@ -52,14 +52,14 @@ msgstr "Connection perdue"
 msgid "close"
 msgstr "fermer"
 
-#: lib/aebc_web/components/navbar.ex:29
-#: lib/aebc_web/live/course_live/index.ex:30
-#: lib/aebc_web/live/teacher_live/show.ex:45
+#: lib/aebc_web/components/navbar.ex:32
+#: lib/aebc_web/live/course_live/index.ex:31
+#: lib/aebc_web/live/teacher_live/show.ex:47
 #, elixir-autogen, elixir-format
 msgid "Courses"
 msgstr "Cours"
 
-#: lib/aebc_web/components/navbar.ex:15
+#: lib/aebc_web/components/navbar.ex:28
 #, elixir-autogen, elixir-format
 msgid "About"
 msgstr "A propos"
@@ -69,141 +69,152 @@ msgstr "A propos"
 msgid "All rights reserved."
 msgstr "Tous droits réservés."
 
-#: lib/aebc_web/live/course_live/show.ex:53
+#: lib/aebc_web/live/course_live/show.ex:55
 #, elixir-autogen, elixir-format
 msgid "Back to courses"
 msgstr "Retour aux cours"
 
-#: lib/aebc_web/live/director_live/show.ex:45
+#: lib/aebc_web/live/director_live/show.ex:47
 #, elixir-autogen, elixir-format
 msgid "Back to directors"
 msgstr "Retour au directeurs"
 
-#: lib/aebc_web/live/event_live/show.ex:45
+#: lib/aebc_web/live/event_live/show.ex:47
 #, elixir-autogen, elixir-format
 msgid "Back to events"
 msgstr "Retour aux évènements"
 
-#: lib/aebc_web/live/post_live/show.ex:45
+#: lib/aebc_web/live/post_live/show.ex:47
 #, elixir-autogen, elixir-format
 msgid "Back to posts"
 msgstr "Retour aux news"
 
-#: lib/aebc_web/live/teacher_live/show.ex:57
+#: lib/aebc_web/live/teacher_live/show.ex:59
 #, elixir-autogen, elixir-format
 msgid "Back to teachers"
 msgstr "Retour vers les Professeurs"
 
-#: lib/aebc_web/live/course_live/show.ex:37
+#: lib/aebc_web/live/course_live/show.ex:39
 #, elixir-autogen, elixir-format
 msgid "Course"
 msgstr "Cours"
 
-#: lib/aebc_web/live/director_live/show.ex:37
+#: lib/aebc_web/live/director_live/show.ex:39
 #, elixir-autogen, elixir-format
 msgid "Director"
 msgstr "Directeur"
 
-#: lib/aebc_web/components/navbar.ex:21
+#: lib/aebc_web/components/navbar.ex:30
+#: lib/aebc_web/live/director_live/index.ex:31
 #, elixir-autogen, elixir-format
 msgid "Directors"
 msgstr "Directeurs"
 
-#: lib/aebc_web/components/navbar.ex:38
+#: lib/aebc_web/components/navbar.ex:35
 #, elixir-autogen, elixir-format
 msgid "Download"
 msgstr "Téléchargements"
 
-#: lib/aebc_web/live/event_live/show.ex:37
+#: lib/aebc_web/live/event_live/show.ex:39
 #, elixir-autogen, elixir-format
 msgid "Event"
 msgstr "Evènement"
 
-#: lib/aebc_web/components/navbar.ex:26
-#: lib/aebc_web/live/event_live/index.ex:30
+#: lib/aebc_web/components/navbar.ex:31
+#: lib/aebc_web/live/event_live/index.ex:31
 #, elixir-autogen, elixir-format
 msgid "Events"
 msgstr "Evènements"
 
-#: lib/aebc_web/components/navbar.ex:18
+#: lib/aebc_web/components/navbar.ex:29
 #, elixir-autogen, elixir-format
 msgid "Institute"
 msgstr "L'Institut"
 
-#: lib/aebc_web/components/navbar.ex:35
+#: lib/aebc_web/components/navbar.ex:34
 #, elixir-autogen, elixir-format
 msgid "News"
 msgstr ""
 
-#: lib/aebc_web/live/post_live/show.ex:37
+#: lib/aebc_web/live/post_live/show.ex:39
 #, elixir-autogen, elixir-format
 msgid "Post"
 msgstr "News"
 
-#: lib/aebc_web/live/post_live/index.ex:30
+#: lib/aebc_web/live/post_live/index.ex:31
 #, elixir-autogen, elixir-format
 msgid "Posts"
 msgstr "News"
 
-#: lib/aebc_web/live/course_live/show.ex:46
-#: lib/aebc_web/live/teacher_live/show.ex:37
+#: lib/aebc_web/live/course_live/show.ex:48
+#: lib/aebc_web/live/teacher_live/show.ex:39
 #, elixir-autogen, elixir-format
 msgid "Teacher"
 msgstr "Professeur"
 
-#: lib/aebc_web/components/navbar.ex:32
-#: lib/aebc_web/live/teacher_live/index.ex:30
+#: lib/aebc_web/components/navbar.ex:33
+#: lib/aebc_web/live/teacher_live/index.ex:31
 #, elixir-autogen, elixir-format
 msgid "Teachers"
 msgstr "Professeurs"
 
-#: lib/aebc_web/components/navbar.ex:41
+#: lib/aebc_web/components/navbar.ex:36
 #, elixir-autogen, elixir-format
 msgid "Contact"
 msgstr "Contact"
 
-#: lib/aebc_web/components/contact_form.ex:12
-#: lib/aebc_web/live/contact_live.ex:8
+#: lib/aebc_web/components/contact_form.ex:22
+#: lib/aebc_web/live/contact_live.ex:10
 #, elixir-autogen, elixir-format
 msgid "Contact Us"
 msgstr "Contactez Nous"
 
-#: lib/aebc_web/components/contact_form.ex:27
+#: lib/aebc_web/components/contact_form.ex:35
 #, elixir-autogen, elixir-format
 msgid "Email"
 msgstr ""
 
-#: lib/aebc_web/components/contact_form.ex:39
+#: lib/aebc_web/components/contact_form.ex:48
 #, elixir-autogen, elixir-format
 msgid "How can we help you?"
 msgstr "Comment pouvons nous vous aider?"
 
-#: lib/aebc_web/controllers/page_html/home.html.heex:35
+#: lib/aebc_web/controllers/page_html/home.html.heex:43
 #, elixir-autogen, elixir-format
 msgid "Latest Events."
 msgstr "Les derniers évènements"
 
-#: lib/aebc_web/controllers/page_html/home.html.heex:23
+#: lib/aebc_web/controllers/page_html/home.html.heex:30
 #, elixir-autogen, elixir-format
 msgid "Latest News."
 msgstr "Les dernières news"
 
-#: lib/aebc_web/components/contact_form.ex:46
+#: lib/aebc_web/components/contact_form.ex:66
 #, elixir-autogen, elixir-format
 msgid "Send Question"
 msgstr "Envoyer"
 
-#: lib/aebc_web/live/contact_live.ex:20
-#, elixir-autogen, elixir-format
-msgid "Thank you for your question. We'll get back to you soon!"
-msgstr "Merci pour votre question. Nous vous répondrons bientôt!"
-
-#: lib/aebc_web/components/contact_form.ex:37
+#: lib/aebc_web/components/contact_form.ex:46
 #, elixir-autogen, elixir-format
 msgid "Your Question"
 msgstr "Votre Question"
 
-#: lib/aebc_web/components/contact_form.ex:29
+#: lib/aebc_web/components/contact_form.ex:37
 #, elixir-autogen, elixir-format
 msgid "your.email@example.com"
 msgstr "votre.email@exemple.com"
+
+#: lib/aebc_web/components/contact_form.ex:58
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Thank you for your question!"
+msgstr "Merci pour votre question. Nous vous répondrons bientôt!"
+
+#: lib/aebc_web/live/contact_live.ex:26
+#, elixir-autogen, elixir-format
+msgid "Verification failed. Please try again."
+msgstr ""
+
+#: lib/aebc_web/controllers/page_html/home.html.heex:27
+#, elixir-autogen, elixir-format, fuzzy
+msgid "Latest News & Events"
+msgstr "Les dernières news"
