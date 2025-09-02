@@ -41,7 +41,11 @@ defmodule AebcWeb.DirectorLive.Show do
       <%= gettext("Director") %> {@director["name"]}
     </.header>
 
-    <img class="w-full h-48 object-cover" src={@director["photo_url"]} alt={@director["name"]} />
+    <img
+      class="w-full h-48 object-cover mt-8 mb-8"
+      src={@director["photo_url"]}
+      alt={@director["name"]}
+    />
 
     <%= raw(@director["description"]) %>
 

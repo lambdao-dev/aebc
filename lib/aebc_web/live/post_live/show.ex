@@ -43,6 +43,12 @@ defmodule AebcWeb.PostLive.Show do
 
     <img class="w-full h-48 object-cover" src={@post["photo_url"]} alt={@post["name"]} />
 
+    <img
+      class="w-full h-48 object-cover mt-8 mb-8"
+      src={@post["photo_url"]}
+      alt={@post["name"]}
+    />
+
     <%= raw(@post["description"]) %>
 
     <.back navigate={~p"/posts"}>

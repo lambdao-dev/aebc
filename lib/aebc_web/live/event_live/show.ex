@@ -41,7 +41,11 @@ defmodule AebcWeb.EventLive.Show do
       <%= gettext("Event") %> {@event["name"]}
     </.header>
 
-    <img class="w-full h-48 object-cover" src={@event["photo_url"]} alt={@event["name"]} />
+    <img
+      class="w-full h-48 object-cover mt-8 mb-8"
+      src={@event["photo_url"]}
+      alt={@event["name"]}
+    />
 
     <%= raw(@event["description"]) %>
 

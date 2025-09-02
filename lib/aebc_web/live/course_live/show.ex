@@ -43,7 +43,7 @@ defmodule AebcWeb.CourseLive.Show do
     </.header>
 
     <img
-      class="w-full h-48 object-cover mb-8"
+      class="w-full h-48 object-cover mt-8 mb-8"
       src={@course["photo_url"]}
       alt={@course["name"]}
     />

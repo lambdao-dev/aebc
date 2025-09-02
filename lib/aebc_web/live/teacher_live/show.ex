@@ -42,7 +42,7 @@ defmodule AebcWeb.TeacherLive.Show do
     </.header>
 
     <img
-      class="w-full h-48 object-cover mb-8"
+      class="w-full h-48 object-cover mt-8 mb-8"
       src={@teacher["photo_url"]}
       alt={@teacher["name"]}
     />
