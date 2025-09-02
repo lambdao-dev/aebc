@@ -7,8 +7,10 @@ defmodule AebcWeb.CourseLive.Show do
   use Gettext, backend: AebcWeb.Gettext
 
   @impl true
-  def mount(%{"id" => cid}, session, socket) do
-    locale = Gettext.get_locale(AebcWeb.Gettext)
+  def mount(%{"id" => cid} = params, _session, socket) do
+    locale = Map.get(params, "locale", Gettext.get_locale(AebcWeb.Gettext))
+    Gettext.put_locale(AebcWeb.Gettext, locale)
+
     {status, resp} = Institute.get("courses", cid, locale, ["photo", "teacher"])
     course = case status do
       :ok -> Institute.add_photo_url(resp)
