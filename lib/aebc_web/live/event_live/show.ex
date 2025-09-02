@@ -6,6 +6,8 @@ defmodule AebcWeb.EventLive.Show do
   alias Aebc.Institute
   use Gettext, backend: AebcWeb.Gettext
 
+  import AebcWeb.DateHelper
+
   @impl true
   def mount(%{"id" => cid} = params, _session, socket) do
     locale = Map.get(params, "locale", Gettext.get_locale(AebcWeb.Gettext))
@@ -38,7 +40,10 @@ defmodule AebcWeb.EventLive.Show do
   def render(assigns) do
     ~H"""
     <.header>
-      <%= gettext("Event") %> {@event["name"]}
+      <div><%= gettext("Event") %> {@event["name"]}</div>
+      <div class="mt-2 text-sm text-gray-600">
+        <%= format_date_localized(@event["date_start"]) %>
+      </div>
     </.header>
 
     <img
