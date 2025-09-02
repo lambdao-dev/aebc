@@ -19,7 +19,7 @@ msgstr ""
 #: lib/aebc_web/components/core_components.ex:160
 #, elixir-autogen, elixir-format
 msgid "Attempting to reconnect"
-msgstr "Tentative de reconnection..."
+msgstr "Tentative de reconnexion..."
 
 #: lib/aebc_web/components/core_components.ex:151
 #, elixir-autogen, elixir-format
@@ -44,7 +44,7 @@ msgstr "Succès!"
 #: lib/aebc_web/components/core_components.ex:155
 #, elixir-autogen, elixir-format
 msgid "We can't find the internet"
-msgstr "Connection perdue"
+msgstr "Connexion perdue"
 
 #: lib/aebc_web/components/core_components.ex:76
 #: lib/aebc_web/components/core_components.ex:130
@@ -77,7 +77,7 @@ msgstr "Retour aux cours"
 #: lib/aebc_web/live/director_live/show.ex:47
 #, elixir-autogen, elixir-format
 msgid "Back to directors"
-msgstr "Retour au directeurs"
+msgstr "Retour vers les directeurs"
 
 #: lib/aebc_web/live/event_live/show.ex:47
 #, elixir-autogen, elixir-format
@@ -92,7 +92,7 @@ msgstr "Retour aux news"
 #: lib/aebc_web/live/teacher_live/show.ex:59
 #, elixir-autogen, elixir-format
 msgid "Back to teachers"
-msgstr "Retour vers les Professeurs"
+msgstr "Retour vers les professeurs"
 
 #: lib/aebc_web/live/course_live/show.ex:39
 #, elixir-autogen, elixir-format
