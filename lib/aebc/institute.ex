@@ -63,7 +63,7 @@ defmodule Aebc.Institute do
   defp build_populate_query(populate), do: "populate=#{populate}"
 
   def add_photo_url(dic, placeholder \\ "/uploads/avatar_67198181e0.png") do
-    url = get_in(dic, ["photo", "formats", "small", "url"]) || placeholder
+    url = get_in(dic, ["photo", "url"]) || get_in(dic, ["photo", "formats", "small", "url"]) || get_in(dic, ["photo", "formats", "thumbnail", "url"]) || placeholder
     prefix = AebcWeb.UrlHelper.strapi_url_prefix()
     Map.put(dic, "photo_url", prefix <> url)
   end
