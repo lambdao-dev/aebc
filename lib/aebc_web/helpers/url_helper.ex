@@ -8,13 +8,8 @@ defmodule AebcWeb.UrlHelper do
   """
 
   def strapi_url_prefix do
-    case Mix.env() do
-      :dev ->
-        Application.get_env(:aebc, :strapi)[:url_prefix] || "http://localhost:1337"
-
-      _ ->
-        Application.get_env(:aebc, :strapi)[:url_prefix] || ""
-    end
+    Application.get_env(:aebc, :strapi)[:url_prefix] ||
+      if System.get_env("MIX_ENV") == "dev", do: "http://localhost:1337", else: ""
   end
 
   @doc """
