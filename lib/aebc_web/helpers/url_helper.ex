@@ -6,8 +6,15 @@ defmodule AebcWeb.UrlHelper do
   @doc """
   Returns the configured Strapi URL prefix.
   """
+
   def strapi_url_prefix do
-    Application.get_env(:aebc, :strapi)[:url_prefix] || "http://localhost:1337"
+    case Mix.env() do
+      :dev ->
+        Application.get_env(:aebc, :strapi)[:url_prefix] || "http://localhost:1337"
+
+      _ ->
+        Application.get_env(:aebc, :strapi)[:url_prefix] || ""
+    end
   end
 
   @doc """
