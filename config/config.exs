@@ -21,7 +21,8 @@ config :aebc, :turnstile,
 
 # Configures the endpoint
 config :aebc, AebcWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "aebc.lambdao.org", port: 443, scheme: "https"],
+  check_origin: ["https://aebc.lambdao.org"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: AebcWeb.ErrorHTML, json: AebcWeb.ErrorJSON],
