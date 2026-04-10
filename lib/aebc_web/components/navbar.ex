@@ -26,9 +26,16 @@ defmodule AebcWeb.Navbar do
 
   <div class="nav-links">
   <a href="/about" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("About")%></a>
-      <a href="/institute" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Institute")%></a>
-      <a href="/directors" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Directors")%></a>
-      <a href="/events" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Events")%></a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-label"><%=gettext("Institute")%> ▾</span>
+        <div class="dropdown-menu">
+          <div class="dropdown-menu-inner">
+            <a href="/institute"><%=gettext("Institute")%></a>
+            <a href="/events"><%=gettext("Events")%></a>
+            <a href="/directors"><%=gettext("Directors")%></a>
+          </div>
+        </div>
+      </div>
       <a href="/courses" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Courses")%></a>
       <a href="/teachers" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("Teachers")%></a>
       <a href="/posts" class="hover:text-zinc-700 block px-4 py-2 lg:p-0"><%=gettext("News")%></a>

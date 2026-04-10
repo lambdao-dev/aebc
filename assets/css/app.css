@@ -164,6 +164,57 @@ body {
   display: none;
 }
 
+/* Dropdown menu */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-label {
+  padding: 0.5em 0.75em;
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
+  color: black;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 6px; /* bridge gap so hover doesn't break */
+  z-index: 100;
+}
+
+.dropdown-menu-inner {
+  background-color: white;
+  border: 1px solid #e4e4e7;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  min-width: 140px;
+}
+
+.nav-dropdown.open .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu > .dropdown-menu-inner > a {
+  display: block;
+  padding: 0.5em 0.75em;
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  white-space: nowrap;
+}
+
+.dropdown-menu > .dropdown-menu-inner > a:hover {
+  text-decoration: underline;
+  background-color: rgba(158, 187, 255, 0.6);
+  border-radius: 6px;
+}
+
 @media (max-width:900px) {
   .nav > .nav-btn {
     display: inline-block;
@@ -207,5 +258,30 @@ body {
   .nav > #nav-check:checked ~ .nav-links {
     height: calc(100vh - 50px);
     overflow-y: auto;
+  }
+
+  /* Mobile: show dropdown items inline under Institute */
+  .nav-dropdown {
+    position: static;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dropdown-menu {
+    display: block;
+    position: static;
+    padding-top: 0;
+  }
+
+  .dropdown-menu-inner {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding-left: 1rem;
+  }
+
+  .dropdown-menu > .dropdown-menu-inner > a {
+    display: block;
+    width: 100%;
   }
 }
