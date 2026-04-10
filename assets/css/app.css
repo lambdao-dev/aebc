@@ -200,12 +200,15 @@ body {
   display: block;
 }
 
-.dropdown-menu > .dropdown-menu-inner > a {
+/* Reset body a overrides for dropdown links */
+.dropdown-menu > .dropdown-menu-inner > a,
+.dropdown-menu > .dropdown-menu-inner > a:visited {
   display: block;
   padding: 0.5em 0.75em;
   text-decoration: none;
   color: black;
   background-color: transparent;
+  border-radius: 0;
   white-space: nowrap;
 }
 
@@ -213,6 +216,7 @@ body {
   text-decoration: underline;
   background-color: rgba(158, 187, 255, 0.6);
   border-radius: 6px;
+  color: black;
 }
 
 @media (max-width:900px) {
