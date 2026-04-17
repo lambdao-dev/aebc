@@ -18,12 +18,16 @@ defmodule Aebc.Institute do
     {:ok, data}
   end
 
-  defp parse_response({:ok, %Tesla.Env{status: 404, body: %{"error" => data}}}) do
+  defp parse_response({:ok, %Tesla.Env{status: _status, body: %{"error" => data}}}) do
     {:error, data}
   end
 
-  defp parse_response(response) do
-    response
+  defp parse_response({:ok, %Tesla.Env{status: status}}) do
+    {:error, "HTTP #{status}"}
+  end
+
+  defp parse_response({:error, reason}) do
+    {:error, reason}
   end
 
   # Optional: For authenticated requests later, you can add a header
@@ -36,22 +40,14 @@ defmodule Aebc.Institute do
   def get(model, id, locale \\ "fr", populate \\ nil, opts \\ %{}) do
     url = "/#{model}/#{id}?locale=#{locale}"
     url = if populate, do: "#{url}&#{build_populate_query(populate)}", else: url
-    params = Enum.map(opts, fn {key, value} -> "#{key}=#{value}" end)
-    url = case params do
-      [] -> url
-      _ -> url <> "&" <> Enum.join(params, "&")
-    end
+    url = if opts != %{}, do: url <> "&" <> URI.encode_query(opts), else: url
     url |> get |> parse_response()
   end
 
   def get_all(model, locale \\ "fr", populate \\ nil, opts \\ %{}) do
     url = "/#{model}?locale=#{locale}"
     url = if populate, do: "#{url}&#{build_populate_query(populate)}", else: url
-    params = Enum.map(opts, fn {key, value} -> "#{key}=#{value}" end)
-    url = case params do
-      [] -> url
-      _ -> url <> "&" <> Enum.join(params, "&")
-    end
+    url = if opts != %{}, do: url <> "&" <> URI.encode_query(opts), else: url
     url |> get |> parse_response()
   end
 
