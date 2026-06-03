@@ -32,7 +32,7 @@ defmodule AebcWeb.Navbar do
           <div class="dropdown-menu-inner">
             <a href="/institute"><%=gettext("Institute")%></a>
             <a href="/events"><%=gettext("Events")%></a>
-            <a href="/directors"><%=gettext("Directors")%></a>
+            <a href="/administrators"><%=gettext("Administrators")%></a>
           </div>
         </div>
       </div>

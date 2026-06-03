@@ -31,8 +31,8 @@ defmodule AebcWeb.Router do
     live "/posts/:id", PostLive.Show, :show
     live "/events", EventLive.Index, :index
     live "/events/:id", EventLive.Show, :show
-    live "/directors", DirectorLive.Index, :index
-    live "/directors/:id", DirectorLive.Show, :show
+    live "/administrators", AdministratorLive.Index, :index
+    live "/administrators/:id", AdministratorLive.Show, :show
     match :*, "/*path", PageController, :not_found
   end
 

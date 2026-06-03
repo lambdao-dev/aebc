@@ -74,10 +74,10 @@ msgstr "Tous droits réservés."
 msgid "Back to courses"
 msgstr "Retour aux cours"
 
-#: lib/aebc_web/live/director_live/show.ex:47
+#: lib/aebc_web/live/administrator_live/show.ex:47
 #, elixir-autogen, elixir-format
-msgid "Back to directors"
-msgstr "Retour vers les directeurs"
+msgid "Back to administrators"
+msgstr "Retour vers les administrateurs"
 
 #: lib/aebc_web/live/event_live/show.ex:47
 #, elixir-autogen, elixir-format
@@ -99,16 +99,16 @@ msgstr "Retour vers les professeurs"
 msgid "Course"
 msgstr "Cours"
 
-#: lib/aebc_web/live/director_live/show.ex:39
+#: lib/aebc_web/live/administrator_live/show.ex:39
 #, elixir-autogen, elixir-format
-msgid "Director"
-msgstr "Directeur"
+msgid "Administrator"
+msgstr "Administrateur"
 
 #: lib/aebc_web/components/navbar.ex:30
-#: lib/aebc_web/live/director_live/index.ex:31
+#: lib/aebc_web/live/administrator_live/index.ex:31
 #, elixir-autogen, elixir-format
-msgid "Directors"
-msgstr "Directeurs"
+msgid "Administrators"
+msgstr "Administrateurs"
 
 #: lib/aebc_web/components/navbar.ex:35
 #, elixir-autogen, elixir-format
