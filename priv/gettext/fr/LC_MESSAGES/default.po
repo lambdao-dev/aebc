@@ -171,8 +171,18 @@ msgstr "Contactez Nous"
 
 #: lib/aebc_web/components/contact_form.ex:35
 #, elixir-autogen, elixir-format
+msgid "Address"
+msgstr "Adresse"
+
+#: lib/aebc_web/live/contact_live.ex
+#, elixir-autogen, elixir-format
+msgid "Phone"
+msgstr "Téléphone"
+
+#: lib/aebc_web/components/contact_form.ex:35
+#, elixir-autogen, elixir-format
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: lib/aebc_web/components/contact_form.ex:48
 #, elixir-autogen, elixir-format
