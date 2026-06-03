@@ -87,7 +87,7 @@ msgstr "Retour aux évènements"
 #: lib/aebc_web/live/post_live/show.ex:47
 #, elixir-autogen, elixir-format
 msgid "Back to posts"
-msgstr "Retour aux news"
+msgstr "Retour aux dernières nouvelles"
 
 #: lib/aebc_web/live/teacher_live/show.ex:59
 #, elixir-autogen, elixir-format
@@ -134,17 +134,17 @@ msgstr "L'Institut"
 #: lib/aebc_web/components/navbar.ex:34
 #, elixir-autogen, elixir-format
 msgid "News"
-msgstr ""
+msgstr "Dernières nouvelles"
 
 #: lib/aebc_web/live/post_live/show.ex:39
 #, elixir-autogen, elixir-format
 msgid "Post"
-msgstr "News"
+msgstr "Dernières nouvelles"
 
 #: lib/aebc_web/live/post_live/index.ex:31
 #, elixir-autogen, elixir-format
 msgid "Posts"
-msgstr "News"
+msgstr "Dernières nouvelles"
 
 #: lib/aebc_web/live/course_live/show.ex:48
 #: lib/aebc_web/live/teacher_live/show.ex:39
@@ -187,7 +187,7 @@ msgstr "Les derniers évènements"
 #: lib/aebc_web/controllers/page_html/home.html.heex:30
 #, elixir-autogen, elixir-format
 msgid "Latest News."
-msgstr "Les dernières news"
+msgstr "Les dernières nouvelles"
 
 #: lib/aebc_web/components/contact_form.ex:66
 #, elixir-autogen, elixir-format
@@ -217,4 +217,4 @@ msgstr ""
 #: lib/aebc_web/controllers/page_html/home.html.heex:27
 #, elixir-autogen, elixir-format, fuzzy
 msgid "Latest News & Events"
-msgstr "Les dernières news"
+msgstr "Les dernières nouvelles & évènements"
