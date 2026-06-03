@@ -22,6 +22,7 @@ defmodule AebcWeb.Router do
     get "/about", PageController, :about
     get "/institute", PageController, :institute
     get "/download", PageController, :download
+    get "/hsk", PageController, :hsk
     live "/contact", ContactLive, :index
     live "/courses", CourseLive.Index, :index
     live "/courses/:id", CourseLive.Show, :show

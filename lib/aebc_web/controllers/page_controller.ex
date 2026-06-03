@@ -60,4 +60,8 @@ defmodule AebcWeb.PageController do
   def download(conn, _params) do  # TODO
     single_page("download", :simple, conn, _params)
   end
+
+  def hsk(conn, params) do
+    single_page("hsk", :simple, conn, params)
+  end
 end

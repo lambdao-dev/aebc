@@ -158,6 +158,11 @@ msgstr "Professeur"
 msgid "Teachers"
 msgstr "Professeurs"
 
+#: lib/aebc_web/components/navbar.ex
+#, elixir-autogen, elixir-format
+msgid "HSK Centre"
+msgstr "Centre HSK"
+
 #: lib/aebc_web/components/navbar.ex:36
 #, elixir-autogen, elixir-format
 msgid "Contact"

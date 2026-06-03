@@ -33,6 +33,7 @@ defmodule AebcWeb.Navbar do
             <a href="/institute"><%=gettext("Institute")%></a>
             <a href="/events"><%=gettext("Events")%></a>
             <a href="/administrators"><%=gettext("Administrators")%></a>
+            <a href="/hsk"><%=gettext("HSK Centre")%></a>
           </div>
         </div>
       </div>
