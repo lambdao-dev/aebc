@@ -64,4 +64,8 @@ defmodule AebcWeb.PageController do
   def hsk(conn, params) do
     single_page("hsk", :simple, conn, params)
   end
+
+  def contact_page(conn, params) do
+    single_page("contact-page", :simple, conn, params)
+  end
 end
