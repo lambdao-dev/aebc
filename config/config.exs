@@ -12,6 +12,7 @@ config :aebc,
 
 # Strapi configuration
 config :aebc, :strapi,
+  api_url: "http://localhost:1337/api",
   url_prefix: "http://localhost:1337"
 
 # Cloudflare Turnstile configuration

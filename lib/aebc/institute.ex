@@ -3,15 +3,17 @@ defmodule Aebc.Institute do
   The Institute context.
   """
 
-  use Tesla
+  defp client do
+    Tesla.client([
+      {Tesla.Middleware.BaseUrl, api_url()},
+      Tesla.Middleware.JSON
+    ])
+  end
 
-  # Plug in middleware for JSON and setting the base URL
-  plug Tesla.Middleware.BaseUrl, "http://localhost:1337/api"
-  plug Tesla.Middleware.JSON
-
-  # defp base_url do
-  #   Application.fetch_env!(:institute, :strapi)[:base_url]
-  # end
+  def api_url do
+    Application.fetch_env!(:aebc, :strapi)
+    |> Keyword.fetch!(:api_url)
+  end
 
   # Helper to parse the common Strapi response structure
   defp parse_response({:ok, %Tesla.Env{status: 200, body: %{"data" => data}}}) do
@@ -34,21 +36,21 @@ defmodule Aebc.Institute do
   # plug Tesla.Middleware.Headers, [{"Authorization", "Bearer #{System.get_env("STRAPI_API_TOKEN")}"}]
 
   def fetch_single_page(slug, locale \\ "fr") do
-    get("/#{slug}?locale=#{locale}") |> parse_response()
+    Tesla.get(client(), "/#{slug}?locale=#{locale}") |> parse_response()
   end
 
   def get(model, id, locale \\ "fr", populate \\ nil, opts \\ %{}) do
     url = "/#{model}/#{id}?locale=#{locale}"
     url = if populate, do: "#{url}&#{build_populate_query(populate)}", else: url
     url = if opts != %{}, do: url <> "&" <> URI.encode_query(opts), else: url
-    url |> get |> parse_response()
+    Tesla.get(client(), url) |> parse_response()
   end
 
   def get_all(model, locale \\ "fr", populate \\ nil, opts \\ %{}) do
     url = "/#{model}?locale=#{locale}"
     url = if populate, do: "#{url}&#{build_populate_query(populate)}", else: url
     url = if opts != %{}, do: url <> "&" <> URI.encode_query(opts), else: url
-    url |> get |> parse_response()
+    Tesla.get(client(), url) |> parse_response()
   end
 
   defp build_populate_query(populate) when is_list(populate) do
@@ -56,10 +58,14 @@ defmodule Aebc.Institute do
     |> Enum.map(&"populate=#{&1}")
     |> Enum.join("&")
   end
+
   defp build_populate_query(populate), do: "populate=#{populate}"
 
   def add_photo_url(dic, placeholder \\ "/uploads/avatar_67198181e0.png") do
-    url = get_in(dic, ["photo", "url"]) || get_in(dic, ["photo", "formats", "small", "url"]) || get_in(dic, ["photo", "formats", "thumbnail", "url"]) || placeholder
+    url =
+      get_in(dic, ["photo", "url"]) || get_in(dic, ["photo", "formats", "small", "url"]) ||
+        get_in(dic, ["photo", "formats", "thumbnail", "url"]) || placeholder
+
     prefix = AebcWeb.UrlHelper.strapi_url_prefix()
     Map.put(dic, "photo_url", prefix <> url)
   end
@@ -76,7 +82,7 @@ defmodule Aebc.Institute do
     #   }
     # }
     url = "/contacts"
-    resp = post(url, params)
+    resp = Tesla.post(client(), url, params)
     parse_response(resp)
   end
 end

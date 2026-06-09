@@ -20,6 +20,10 @@ if System.get_env("PHX_SERVER") do
   config :aebc, AebcWeb.Endpoint, server: true
 end
 
+if strapi_api_url = System.get_env("STRAPI_API_URL") do
+  config :aebc, :strapi, api_url: strapi_api_url
+end
+
 if config_env() == :prod do
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
@@ -41,11 +45,14 @@ if config_env() == :prod do
 
   # Turnstile configuration for production
   turnstile_site_key = System.get_env("TURNSTILE_SITE_KEY") || "1x00000000000000000000AA"
-  turnstile_secret_key = System.get_env("TURNSTILE_SECRET_KEY") || "1x0000000000000000000000000000000AA"
+
+  turnstile_secret_key =
+    System.get_env("TURNSTILE_SECRET_KEY") || "1x0000000000000000000000000000000AA"
 
   config :aebc, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
 
   config :aebc, :strapi,
+    api_url: System.get_env("STRAPI_API_URL") || "http://localhost:1337/api",
     url_prefix: strapi_url_prefix
 
   config :aebc, :turnstile,
