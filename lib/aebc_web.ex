@@ -59,6 +59,15 @@ defmodule AebcWeb do
     end
   end
 
+  def simple_live_view do
+    quote do
+      use Phoenix.LiveView,
+        layout: {AebcWeb.Layouts, :app_simple}
+
+      unquote(html_helpers())
+    end
+  end
+
   def live_component do
     quote do
       use Phoenix.LiveComponent

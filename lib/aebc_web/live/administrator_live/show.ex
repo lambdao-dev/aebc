@@ -1,7 +1,5 @@
 defmodule AebcWeb.AdministratorLive.Show do
-  use AebcWeb, :live_view
-  use Phoenix.LiveView,
-    layout: {AebcWeb.Layouts, :app_simple}
+  use AebcWeb, :simple_live_view
 
   alias Aebc.Institute
   use Gettext, backend: AebcWeb.Gettext
@@ -12,18 +10,20 @@ defmodule AebcWeb.AdministratorLive.Show do
     Gettext.put_locale(AebcWeb.Gettext, locale)
 
     {status, resp} = Institute.get("administrators", cid, locale, ["photo"])
-    administrator = case status do
-      :ok -> Institute.add_photo_url(resp)
-      _error -> nil
-    end
+
+    administrator =
+      case status do
+        :ok -> Institute.add_photo_url(resp)
+        _error -> nil
+      end
 
     if administrator do
-    socket =
-      assign(socket,
-        page_title: "Administrators",
-        locale: locale,
-        administrator: administrator
-      )
+      socket =
+        assign(socket,
+          page_title: "Administrators",
+          locale: locale,
+          administrator: administrator
+        )
 
       {:ok, socket}
     else
@@ -38,7 +38,7 @@ defmodule AebcWeb.AdministratorLive.Show do
   def render(assigns) do
     ~H"""
     <.header>
-      <%= gettext("Administrator") %> {@administrator["name"]}
+      {gettext("Administrator")} {@administrator["name"]}
     </.header>
 
     <img
@@ -47,10 +47,10 @@ defmodule AebcWeb.AdministratorLive.Show do
       alt={@administrator["name"]}
     />
 
-    <%= raw(@administrator["description"]) %>
+    {raw(@administrator["description"])}
 
     <.back navigate={~p"/administrators"}>
-      <%= gettext("Back to administrators") %>
+      {gettext("Back to administrators")}
     </.back>
     """
   end

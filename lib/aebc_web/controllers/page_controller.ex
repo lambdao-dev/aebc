@@ -10,13 +10,16 @@ defmodule AebcWeb.PageController do
     |> render("404.html")
   end
 
-  def single_page(name, template, conn, _params) do
+  def single_page(name, template, conn) do
     locale = Gettext.get_locale(AebcWeb.Gettext)
     {status, resp} = Institute.fetch_single_page(name, locale)
-    content = case status do
-      :ok -> resp
-      _error -> nil
-    end
+
+    content =
+      case status do
+        :ok -> resp
+        _error -> nil
+      end
+
     conn
     |> assign(:content, content)
     |> assign(:page_title, name)
@@ -26,20 +29,28 @@ defmodule AebcWeb.PageController do
   def home(conn, _params) do
     locale = Gettext.get_locale(AebcWeb.Gettext)
     {status, resp} = Institute.fetch_single_page("home", locale)
-    content = case status do
-      :ok -> resp
-      _error -> %{"main" => ""}
-    end
+
+    content =
+      case status do
+        :ok -> resp
+        _error -> %{"main" => ""}
+      end
+
     {status, events} = Institute.get_all("events", locale, nil, %{"pagination.pageSize": 5})
-    events = case status do
-      :ok -> events
-      _error -> []
-    end
+
+    events =
+      case status do
+        :ok -> events
+        _error -> []
+      end
+
     {status, latest_news} = Institute.get_all("posts", locale, nil, %{"pagination.pageSize": 5})
-    latest_news = case status do
-      :ok -> latest_news
-      _error -> []
-    end
+
+    latest_news =
+      case status do
+        :ok -> latest_news
+        _error -> []
+      end
 
     conn
     |> assign(:content, content)
@@ -49,23 +60,23 @@ defmodule AebcWeb.PageController do
     |> render(:home, layout: {AebcWeb.Layouts, :app_wide})
   end
 
-  def about(conn, _params) do  # TODO
-    single_page("about", :simple, conn, _params)
+  def about(conn, _params) do
+    single_page("about", :simple, conn)
   end
 
-  def institute(conn, _params) do  # TODO
-    single_page("institute", :simple, conn, _params)
+  def institute(conn, _params) do
+    single_page("institute", :simple, conn)
   end
 
-  def download(conn, _params) do  # TODO
-    single_page("download", :simple, conn, _params)
+  def download(conn, _params) do
+    single_page("download", :simple, conn)
   end
 
-  def hsk(conn, params) do
-    single_page("hsk", :simple, conn, params)
+  def hsk(conn, _params) do
+    single_page("hsk", :simple, conn)
   end
 
-  def contact_page(conn, params) do
-    single_page("contact-page", :simple, conn, params)
+  def contact_page(conn, _params) do
+    single_page("contact-page", :simple, conn)
   end
 end

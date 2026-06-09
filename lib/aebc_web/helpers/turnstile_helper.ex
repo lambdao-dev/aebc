@@ -3,10 +3,14 @@ defmodule AebcWeb.TurnstileHelper do
   Helper functions for Cloudflare Turnstile integration.
   """
 
-  use Tesla
+  @verify_url "https://challenges.cloudflare.com/turnstile/v0/siteverify"
 
-  plug Tesla.Middleware.FormUrlencoded
-  plug Tesla.Middleware.JSON
+  defp client do
+    Tesla.client([
+      Tesla.Middleware.FormUrlencoded,
+      Tesla.Middleware.JSON
+    ])
+  end
 
   @doc """
   Validates a Turnstile token by sending it to Cloudflare's verification endpoint.
@@ -20,15 +24,19 @@ defmodule AebcWeb.TurnstileHelper do
       "remoteip" => remote_ip
     }
 
-    case post("https://challenges.cloudflare.com/turnstile/v0/siteverify", payload) do
+    case Tesla.post(client(), @verify_url, payload) do
       {:ok, %Tesla.Env{status: 200, body: %{"success" => true} = response}} ->
         {:ok, response}
+
       {:ok, %Tesla.Env{status: 200, body: %{"success" => false, "error-codes" => error_codes}}} ->
         {:error, "Turnstile verification failed: #{Enum.join(error_codes, ", ")}"}
+
       {:ok, %Tesla.Env{status: 200, body: _}} ->
         {:error, "Invalid Turnstile response"}
+
       {:ok, %Tesla.Env{status: status_code}} ->
         {:error, "Turnstile verification failed with status code: #{status_code}"}
+
       {:error, reason} ->
         {:error, "Turnstile verification request failed: #{inspect(reason)}"}
     end
@@ -45,15 +53,19 @@ defmodule AebcWeb.TurnstileHelper do
       "response" => token
     }
 
-    case post("https://challenges.cloudflare.com/turnstile/v0/siteverify", payload) do
+    case Tesla.post(client(), @verify_url, payload) do
       {:ok, %Tesla.Env{status: 200, body: %{"success" => true} = response}} ->
         {:ok, response}
+
       {:ok, %Tesla.Env{status: 200, body: %{"success" => false, "error-codes" => error_codes}}} ->
         {:error, "Turnstile verification failed: #{Enum.join(error_codes, ", ")}"}
+
       {:ok, %Tesla.Env{status: 200, body: _}} ->
         {:error, "Invalid Turnstile response"}
+
       {:ok, %Tesla.Env{status: status_code}} ->
         {:error, "Turnstile verification failed with status code: #{status_code}"}
+
       {:error, reason} ->
         {:error, "Turnstile verification request failed: #{inspect(reason)}"}
     end

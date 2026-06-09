@@ -10,10 +10,8 @@ defmodule AebcWeb.Layouts do
   """
   use AebcWeb, :html
 
-  import AebcWeb.LocaleSelector
   import AebcWeb.Navbar
   import AebcWeb.Footer
-  import AebcWeb.ContactForm
 
   embed_templates "layouts/*"
 end

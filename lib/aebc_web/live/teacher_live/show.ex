@@ -1,7 +1,5 @@
 defmodule AebcWeb.TeacherLive.Show do
-  use AebcWeb, :live_view
-  use Phoenix.LiveView,
-    layout: {AebcWeb.Layouts, :app_simple}
+  use AebcWeb, :simple_live_view
 
   alias Aebc.Institute
   use Gettext, backend: AebcWeb.Gettext
@@ -12,18 +10,20 @@ defmodule AebcWeb.TeacherLive.Show do
     Gettext.put_locale(AebcWeb.Gettext, locale)
 
     {status, resp} = Institute.get("teachers", cid, locale, ["photo", "courses"])
-    teacher = case status do
-      :ok -> Institute.add_photo_url(resp)
-      _error -> nil
-    end
+
+    teacher =
+      case status do
+        :ok -> Institute.add_photo_url(resp)
+        _error -> nil
+      end
 
     if teacher do
-    socket =
-      assign(socket,
-        page_title: "Teachers",
-        locale: locale,
-        teacher: teacher
-      )
+      socket =
+        assign(socket,
+          page_title: "Teachers",
+          locale: locale,
+          teacher: teacher
+        )
 
       {:ok, socket}
     else
@@ -38,7 +38,7 @@ defmodule AebcWeb.TeacherLive.Show do
   def render(assigns) do
     ~H"""
     <.header>
-      <%= gettext("Teacher") %> {@teacher["name"]}
+      {gettext("Teacher")} {@teacher["name"]}
     </.header>
 
     <img
@@ -47,19 +47,19 @@ defmodule AebcWeb.TeacherLive.Show do
       alt={@teacher["name"]}
     />
 
-    <%= raw(@teacher["description"]) %>
+    {raw(@teacher["description"])}
 
     <%= if !Enum.empty?(@teacher["courses"]) do %>
       <div class="border border-gray-300 rounded-lg p-6 bg-gray-50 mt-10">
         <h2 class="text-2xl font-semibold mb-4 px-4 py-2 bg-blue-100 rounded text-blue-900">
-          <%= gettext("Courses") %>
+          {gettext("Courses")}
         </h2>
 
         <ul class="space-y-2 px-2">
           <%= for course <- @teacher["courses"] do %>
             <li>
               <.link navigate={~p"/courses/#{course["id"]}"} class="text-blue-600 hover:underline">
-                <%= course["name"] %>
+                {course["name"]}
               </.link>
             </li>
           <% end %>
@@ -68,7 +68,7 @@ defmodule AebcWeb.TeacherLive.Show do
     <% end %>
 
     <.back navigate={~p"/teachers"}>
-      <%= gettext("Back to teachers") %>
+      {gettext("Back to teachers")}
     </.back>
     """
   end

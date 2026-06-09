@@ -1,7 +1,5 @@
 defmodule AebcWeb.PostLive.Show do
-  use AebcWeb, :live_view
-  use Phoenix.LiveView,
-    layout: {AebcWeb.Layouts, :app_simple}
+  use AebcWeb, :simple_live_view
 
   alias Aebc.Institute
   use Gettext, backend: AebcWeb.Gettext
@@ -12,18 +10,20 @@ defmodule AebcWeb.PostLive.Show do
     Gettext.put_locale(AebcWeb.Gettext, locale)
 
     {status, resp} = Institute.get("posts", cid, locale, ["photo"])
-    post = case status do
-      :ok -> Institute.add_photo_url(resp)
-      _error -> nil
-    end
+
+    post =
+      case status do
+        :ok -> Institute.add_photo_url(resp)
+        _error -> nil
+      end
 
     if post do
-    socket =
-      assign(socket,
-        page_title: "Posts",
-        locale: locale,
-        post: post
-      )
+      socket =
+        assign(socket,
+          page_title: "Posts",
+          locale: locale,
+          post: post
+        )
 
       {:ok, socket}
     else
@@ -38,21 +38,17 @@ defmodule AebcWeb.PostLive.Show do
   def render(assigns) do
     ~H"""
     <.header>
-      <%= gettext("Post") %> {@post["name"]}
+      {gettext("Post")} {@post["name"]}
     </.header>
 
     <img class="w-full h-48 object-cover" src={@post["photo_url"]} alt={@post["name"]} />
 
-    <img
-      class="w-full h-48 object-cover mt-8 mb-8"
-      src={@post["photo_url"]}
-      alt={@post["name"]}
-    />
+    <img class="w-full h-48 object-cover mt-8 mb-8" src={@post["photo_url"]} alt={@post["name"]} />
 
-    <%= raw(@post["description"]) %>
+    {raw(@post["description"])}
 
     <.back navigate={~p"/posts"}>
-      <%= gettext("Back to posts") %>
+      {gettext("Back to posts")}
     </.back>
     """
   end

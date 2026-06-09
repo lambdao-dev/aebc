@@ -1,7 +1,5 @@
 defmodule AebcWeb.EventLive.Show do
-  use AebcWeb, :live_view
-  use Phoenix.LiveView,
-    layout: {AebcWeb.Layouts, :app_simple}
+  use AebcWeb, :simple_live_view
 
   alias Aebc.Institute
   use Gettext, backend: AebcWeb.Gettext
@@ -14,18 +12,20 @@ defmodule AebcWeb.EventLive.Show do
     Gettext.put_locale(AebcWeb.Gettext, locale)
 
     {status, resp} = Institute.get("events", cid, locale, ["photo"])
-    event = case status do
-      :ok -> Institute.add_photo_url(resp)
-      _error -> nil
-    end
+
+    event =
+      case status do
+        :ok -> Institute.add_photo_url(resp)
+        _error -> nil
+      end
 
     if event do
-    socket =
-      assign(socket,
-        page_title: "Events",
-        locale: locale,
-        event: event
-      )
+      socket =
+        assign(socket,
+          page_title: "Events",
+          locale: locale,
+          event: event
+        )
 
       {:ok, socket}
     else
@@ -40,22 +40,18 @@ defmodule AebcWeb.EventLive.Show do
   def render(assigns) do
     ~H"""
     <.header>
-      <div><%= gettext("Event") %> {@event["name"]}</div>
+      <div>{gettext("Event")} {@event["name"]}</div>
       <div class="mt-2 text-sm text-gray-600">
-        <%= format_date_localized(@event["date_start"]) %>
+        {format_date_localized(@event["date_start"])}
       </div>
     </.header>
 
-    <img
-      class="w-full h-48 object-cover mt-8 mb-8"
-      src={@event["photo_url"]}
-      alt={@event["name"]}
-    />
+    <img class="w-full h-48 object-cover mt-8 mb-8" src={@event["photo_url"]} alt={@event["name"]} />
 
-    <%= raw(@event["description"]) %>
+    {raw(@event["description"])}
 
     <.back navigate={~p"/events"}>
-      <%= gettext("Back to events") %>
+      {gettext("Back to events")}
     </.back>
     """
   end
