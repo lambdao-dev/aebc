@@ -34,7 +34,6 @@ defmodule AebcWeb.Router do
     live "/events/:id", EventLive.Show, :show
     live "/administrators", AdministratorLive.Index, :index
     live "/administrators/:id", AdministratorLive.Show, :show
-    match :*, "/*path", PageController, :not_found
   end
 
   # Other scopes may use custom stacks.
@@ -57,5 +56,11 @@ defmodule AebcWeb.Router do
       live_dashboard "/dashboard", metrics: AebcWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+  end
+
+  scope "/", AebcWeb do
+    pipe_through :browser
+
+    match :*, "/*path", PageController, :not_found
   end
 end
