@@ -52,7 +52,10 @@ defmodule AebcWeb.Navbar do
             <a href="/contact" class="hover:text-zinc-700 block px-4 py-2 lg:p-0">
               {gettext("Contact")}
             </a>
-            <.locale_selector />
+            <%!-- Locale switching is hidden for now until all content is fully localized. --%>
+            <div class="hidden">
+              <.locale_selector />
+            </div>
           </div>
         </div>
       </div>

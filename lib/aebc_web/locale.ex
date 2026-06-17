@@ -49,8 +49,9 @@ defmodule AebcWeb.Plugs.Locale do
 
   def init(default_locale), do: default_locale
 
-  def call(conn, _opts) do
-    case locale_from_params(conn) || locale_from_cookies(conn) || locale_from_header(conn) do
+  def call(conn, default_locale) do
+    # Locale switching is hidden for now until all content is fully localized.
+    case locale_from_params(conn) || default_locale do
       nil     -> conn
       locale  ->
         Gettext.put_locale(AebcWeb.Gettext, locale)
