@@ -61,18 +61,6 @@ body {
     margin-bottom: 30px;
 }
 
-.flex-calendar-container {
-  display: flex;
-  flex-direction: column; /* or row, depending on layout */
-  width: 100%;
-}
-
-.flex-calendar-container iframe {
-  flex: 1 1 auto;
-  width: 100%;
-  border: none;
-}
-
 .flexbox-v-container {
 	padding: 1%;
     max-width: 50%
