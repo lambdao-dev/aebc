@@ -27,7 +27,13 @@ defmodule AebcWeb.Navbar do
               {gettext("About")}
             </a>
             <div class="nav-dropdown">
-              <span class="nav-dropdown-label">{gettext("Institute")} ▾</span>
+              <button
+                type="button"
+                class="nav-dropdown-label"
+                aria-haspopup="true"
+              >
+                {gettext("Institute")} ▾
+              </button>
               <div class="dropdown-menu">
                 <div class="dropdown-menu-inner">
                   <a href="/institute">{gettext("Institute")}</a>

@@ -162,7 +162,10 @@ body {
 .nav-dropdown-label {
   padding: 0.5em 0.75em;
   white-space: nowrap;
-  cursor: default;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
   user-select: none;
   color: black;
 }
@@ -184,7 +187,8 @@ body {
   min-width: 140px;
 }
 
-.nav-dropdown.open .dropdown-menu {
+.nav-dropdown:hover .dropdown-menu,
+.nav-dropdown:focus-within .dropdown-menu {
   display: block;
 }
 

@@ -48,17 +48,6 @@ Hooks.LocaleSelector = {
   }
 };
 
-// Dropdown: open on hover, close on outside click
-document.querySelectorAll(".nav-dropdown").forEach((dropdown) => {
-  dropdown.addEventListener("mouseenter", () => dropdown.classList.add("open"));
-});
-
-document.addEventListener("click", (e) => {
-  document.querySelectorAll(".nav-dropdown").forEach((dropdown) => {
-    if (!dropdown.contains(e.target)) dropdown.classList.remove("open");
-  });
-});
-
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {
   hooks: Hooks,
@@ -79,4 +68,3 @@ liveSocket.connect()
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
-
