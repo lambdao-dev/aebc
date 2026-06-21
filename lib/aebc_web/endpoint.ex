@@ -23,7 +23,8 @@ defmodule AebcWeb.Endpoint do
     at: "/",
     from: :aebc,
     gzip: false,
-    only: AebcWeb.static_paths()
+    only: AebcWeb.static_paths(),
+    only_matching: ~w(favicon- robots-)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
